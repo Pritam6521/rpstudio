@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Online Center Kurra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        @keyframes slideLeft {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.3; }
+        }
+        
+        .slide-animation {
+            animation: slideLeft 15s linear infinite;
+        }
+        
+        .blink-animation {
+            animation: blink 1s infinite;
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        .pulse-hover:hover {
+            animation: pulse 0.5s ease-in-out;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, #3b82f6, #8b5cf6, #06b6d4);
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* Professional Effects */
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        
+        .glow-effect {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hover-lift {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .social-icon {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .social-icon:hover::before {
+            left: 100%;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .instagram-gradient {
+            background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+        }
+        
+        .youtube-gradient {
+            background: linear-gradient(45deg, #ff0000, #cc0000);
+        }
+        
+        .twitter-gradient {
+            background: linear-gradient(45deg, #1da1f2, #0d8bd9);
+        }
+        
+        .telegram-gradient {
+            background: linear-gradient(45deg, #0088cc, #006bb3);
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        .shimmer-effect {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white/90 backdrop-blur-xl shadow-2xl sticky top-0 z-50 border-b border-gradient-to-r from-blue-200 via-purple-200 to-pink-200">
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-50/50 via-indigo-50/50 to-purple-50/50"></div>
+        <div class="container mx-auto px-4 py-3 relative z-10">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <div class="bg-gradient-to-br from-blue-500 via-indigo-600 to-purple-700 p-3 rounded-xl shadow-2xl transform rotate-6 hover:rotate-0 transition-all duration-700 hover:scale-125 glow-effect">
+                            <div class="bg-gradient-to-tr from-white/30 to-transparent absolute inset-0 rounded-xl"></div>
+                            <svg class="w-7 h-7 text-white relative z-10 drop-shadow-xl" fill="currentColor" viewBox="0 0 24 24">
+                                <!-- Computer Monitor -->
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" fill="currentColor"/>
+                                <rect x="4" y="5" width="16" height="10" rx="1" ry="1" fill="white" opacity="0.9"/>
+                                <!-- Screen Content -->
+                                <rect x="6" y="7" width="4" height="1" fill="currentColor" opacity="0.7"/>
+                                <rect x="6" y="9" width="6" height="1" fill="currentColor" opacity="0.7"/>
+                                <rect x="6" y="11" width="3" height="1" fill="currentColor" opacity="0.7"/>
+                                <circle cx="16" cy="9" r="1.5" fill="currentColor" opacity="0.7"/>
+                                <!-- Stand -->
+                                <rect x="10" y="17" width="4" height="2" rx="1" ry="1" fill="currentColor"/>
+                                <rect x="8" y="19" width="8" height="1" rx="0.5" ry="0.5" fill="currentColor"/>
+                                <!-- Keyboard -->
+                                <rect x="6" y="21" width="12" height="2" rx="1" ry="1" fill="white" opacity="0.8"/>
+                                <rect x="7" y="21.5" width="10" height="1" rx="0.5" ry="0.5" fill="currentColor" opacity="0.6"/>
+                            </svg>
+                        </div>
+                        <div class="absolute -bottom-1 -right-1 w-4 h-4 bg-green-400 rounded-full animate-pulse shadow-xl border-2 border-white"></div>
+                        <div class="absolute -top-1 -left-1 w-3 h-3 bg-yellow-400 rounded-full animate-ping shadow-lg"></div>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-blue-600 drop-shadow-sm">Digital Online Center</h1>
+                        <p class="text-xs text-gray-600 font-semibold tracking-wide">Kurra</p>
+                    </div>
+                </div>
+                
+                <!-- Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#services" class="text-gray-700 hover:text-blue-600 font-semibold transition-all duration-300 hover:scale-105 relative group">
+                        Services
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-indigo-500 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <button onclick="openRegisterModal()" class="text-gray-700 hover:text-blue-600 font-semibold transition-all duration-300 hover:scale-105 relative group">
+                        Register
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-indigo-500 transition-all duration-300 group-hover:w-full"></span>
+                    </button>
+                    <a href="#contact" class="text-gray-700 hover:text-blue-600 font-semibold transition-all duration-300 hover:scale-105 relative group">
+                        Contact
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-indigo-500 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#about" class="text-gray-700 hover:text-blue-600 font-semibold transition-all duration-300 hover:scale-105 relative group">
+                        About
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-indigo-500 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden p-3 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 relative overflow-hidden" onclick="toggleMobileMenu()">
+                    <div class="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="hamburger-icon relative z-10">
+                        <span class="hamburger-line block w-6 h-0.5 bg-white mb-1.5 transition-all duration-300 ease-in-out"></span>
+                        <span class="hamburger-line block w-6 h-0.5 bg-white mb-1.5 transition-all duration-300 ease-in-out"></span>
+                        <span class="hamburger-line block w-6 h-0.5 bg-white transition-all duration-300 ease-in-out"></span>
+                    </div>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4 bg-white/95 backdrop-blur-sm rounded-lg shadow-lg">
+                <a href="#services" class="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-300">Services</a>
+                <button onclick="openRegisterModal()" class="block w-full text-left py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-300">Register</button>
+                <a href="#contact" class="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-300">Contact</a>
+                <a href="#about" class="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-300">About</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with Sliding Images -->
+    <section class="py-12 bg-gradient-to-r from-blue-600 via-indigo-700 to-purple-800 text-white overflow-hidden relative parallax-bg">
+        <div class="absolute inset-0 bg-black opacity-20"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-600/30 to-purple-800/30"></div>
+        <div class="container mx-auto px-4 text-center mb-8 relative z-10">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 fade-in-up floating text-shadow">RP Studio & Printing Press</h2>
+            <p class="text-lg sm:text-xl opacity-90 fade-in-up text-shadow">Banking, Government Documents, Bill Payments & More</p>
+        </div>
+        
+        <!-- Sliding Images Container -->
+        <div class="relative h-32 overflow-hidden">
+            <div class="flex space-x-8 slide-animation">
+                <div class="flex-shrink-0 bg-white p-4 rounded-lg shadow-lg">
+                    <div class="w-24 h-16 bg-blue-100 rounded flex items-center justify-center">
+                        <span class="text-2xl">🏦</span>
+                    </div>
+                    <p class="text-xs text-gray-800 mt-2 text-center">Banking</p>
+                </div>
+                <div class="flex-shrink-0 bg-white p-4 rounded-lg shadow-lg">
+                    <div class="w-24 h-16 bg-green-100 rounded flex items-center justify-center">
+                        <span class="text-2xl">📄</span>
+                    </div>
+                    <p class="text-xs text-gray-800 mt-2 text-center">Documents</p>
+                </div>
+                <div class="flex-shrink-0 bg-white p-4 rounded-lg shadow-lg">
+                    <div class="w-24 h-16 bg-yellow-100 rounded flex items-center justify-center">
+                        <span class="text-2xl">💳</span>
+                    </div>
+                    <p class="text-xs text-gray-800 mt-2 text-center">Bill Payment</p>
+                </div>
+                <div class="flex-shrink-0 bg-white p-4 rounded-lg shadow-lg">
+                    <div class="w-24 h-16 bg-purple-100 rounded flex items-center justify-center">
+                        <span class="text-2xl">🚂</span>
+                    </div>
+                    <p class="text-xs text-gray-800 mt-2 text-center">Travel</p>
+                </div>
+                <div class="flex-shrink-0 bg-white p-4 rounded-lg shadow-lg">
+                    <div class="w-24 h-16 bg-red-100 rounded flex items-center justify-center">
+                        <span class="text-2xl">📱</span>
+                    </div>
+                    <p class="text-xs text-gray-800 mt-2 text-center">Recharge</p>
+                </div>
+                <div class="flex-shrink-0 bg-white p-4 rounded-lg shadow-lg">
+                    <div class="w-24 h-16 bg-indigo-100 rounded flex items-center justify-center">
+                        <span class="text-2xl">🛡️</span>
+                    </div>
+                    <p class="text-xs text-gray-800 mt-2 text-center">Insurance</p>
+                </div>
+                <div class="flex-shrink-0 bg-white p-4 rounded-lg shadow-lg">
+                    <div class="w-24 h-16 bg-pink-100 rounded flex items-center justify-center">
+                        <span class="text-2xl">📋</span>
+                    </div>
+                    <p class="text-xs text-gray-800 mt-2 text-center">Certificates</p>
+                </div>
+                <div class="flex-shrink-0 bg-white p-4 rounded-lg shadow-lg">
+                    <div class="w-24 h-16 bg-teal-100 rounded flex items-center justify-center">
+                        <span class="text-2xl">🖨️</span>
+                    </div>
+                    <p class="text-xs text-gray-800 mt-2 text-center">Print Services</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Notification -->
+    <section class="py-8 bg-gradient-to-r from-yellow-50 via-orange-50 to-red-50 border-b border-gradient-to-r from-yellow-200 to-red-200">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+                <!-- Notification Button -->
+                <button class="relative group bg-gradient-to-r from-red-500 via-red-600 to-red-700 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl hover:shadow-red-500/50 transition-all duration-500 transform hover:scale-110 hover:-translate-y-1 overflow-hidden" onclick="openNotification()">
+                    <div class="absolute inset-0 bg-gradient-to-r from-red-400 to-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute -top-1 -right-1 w-6 h-6 bg-yellow-400 rounded-full animate-bounce flex items-center justify-center">
+                        <span class="text-xs">🔥</span>
+                    </div>
+                    <div class="relative z-10 flex items-center space-x-3">
+                        <span class="text-2xl animate-pulse">🔔</span>
+                        <a href="https://thespiceclubshop.my.canva.site/notification"><span class="tracking-wide">Latest Notification - Click Here!</span></a>
+                        <span class="text-xl animate-bounce">✨</span>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                </button>
+                
+                <!-- Education Website Button -->
+                <button class="relative group bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-700 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 transform hover:scale-110 hover:-translate-y-1 overflow-hidden" onclick="openEducationWebsite()">
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute -top-1 -right-1 w-6 h-6 bg-green-400 rounded-full animate-pulse flex items-center justify-center">
+                        <span class="text-xs">🎓</span>
+                    </div>
+                    <div class="relative z-10 flex items-center space-x-3">
+                        <span class="text-2xl animate-bounce">📚</span>
+                        <A href="https://techcaredigital.my.canva.site/education"><span class="tracking-wide">Education Portal</span></A>
+                        <span class="text-xl animate-pulse">🌟</span>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                </button>
+                
+                <!-- Jobs Button -->
+                <button class="relative group bg-gradient-to-r from-green-500 via-emerald-600 to-teal-700 text-white px-6 py-3 rounded-xl font-bold text-sm shadow-xl hover:shadow-green-500/50 transition-all duration-500 transform hover:scale-110 hover:-translate-y-1 overflow-hidden" onclick="openJobsPortal()">
+                    <div class="absolute inset-0 bg-gradient-to-r from-green-400 to-teal-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute -top-1 -right-1 w-5 h-5 bg-yellow-400 rounded-full animate-bounce flex items-center justify-center">
+                        <span class="text-xs">💼</span>
+                    </div>
+                    <div class="relative z-10 flex items-center space-x-2">
+                        <span class="text-lg animate-pulse">🚀</span>
+                        <A href="https://sarkariresult.com.cm/"><span class="tracking-wide">Jobs</span></A>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                </button>
+            </div>
+            
+            <!-- Floating particles effect -->
+            <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                <div class="absolute top-1/2 left-1/4 w-2 h-2 bg-yellow-400 rounded-full animate-ping opacity-60"></div>
+                <div class="absolute top-1/3 right-1/4 w-3 h-3 bg-blue-400 rounded-full animate-pulse opacity-40"></div>
+                <div class="absolute bottom-1/3 left-1/3 w-1 h-1 bg-red-400 rounded-full animate-bounce opacity-50"></div>
+                <div class="absolute top-2/3 right-1/3 w-2 h-2 bg-purple-400 rounded-full animate-ping opacity-30"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16">
+        <div class="container mx-auto px-4">
+            <!-- Language Toggle and Printing Press Button -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+                <!-- Language Toggle -->
+                <div class="flex items-center bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg">
+                    <button id="englishBtn" class="px-4 py-2 rounded-full font-semibold transition-all duration-300 bg-blue-500 text-white" onclick="switchLanguage('english')">English</button>
+                    <button id="hindiBtn" class="px-4 py-2 rounded-full font-semibold transition-all duration-300 text-gray-600 hover:text-blue-500" onclick="switchLanguage('hindi')">हिंदी</button>
+                </div>
+                
+                <!-- Printing Press Button -->
+                <button class="relative group bg-gradient-to-r from-purple-500 via-pink-600 to-red-600 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl hover:shadow-purple-500/50 transition-all duration-500 transform hover:scale-110 hover:-translate-y-1 overflow-hidden" onclick="openPrintingPress()">
+                    <div class="absolute inset-0 bg-gradient-to-r from-purple-400 to-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute -top-1 -right-1 w-6 h-6 bg-yellow-400 rounded-full animate-spin flex items-center justify-center">
+                        <span class="text-xs">🖨️</span>
+                    </div>
+                    <div class="relative z-10 flex items-center space-x-3">
+                        <span class="text-2xl animate-bounce">🎨</span>
+                        <A href="https://thespiceclubshop.my.canva.site/printing-press"><span class="tracking-wide">Printing Press</span></A>
+                        <span class="text-xl animate-pulse">✨</span>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                </button>
+            </div>
+            
+            <h2 id="servicesTitle" class="text-3xl font-bold text-center mb-12 text-gray-800">Our Services</h2>
+            
+            <!-- Government Documents -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-6 text-blue-600">Government Documents & ID Cards</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="service-card bg-gradient-to-br from-blue-50 to-blue-100 border-l-4 border-blue-500 p-6 rounded-xl shadow-lg hover-lift cursor-pointer glow-effect" onclick="showServiceDetails('Bank Account Opening', 'bankAccount')">
+                        <h4 class="font-bold text-lg mb-2 text-blue-800">Bank Account Opening & Aadhaar Linking</h4>
+                        <p class="text-blue-600 font-bold text-xl">₹300</p>
+                    </div>
+                    <div class="service-card bg-gradient-to-br from-green-50 to-green-100 border-l-4 border-green-500 p-6 rounded-xl shadow-lg hover-lift cursor-pointer" onclick="showServiceDetails('Money Transfer', 'moneyTransfer')">
+                        <h4 class="font-bold text-lg mb-2 text-green-800">Money Transfer & Payment Services</h4>
+                        <p class="text-green-600 font-bold text-xl">₹10</p>
+                    </div>
+                    <div class="service-card bg-gradient-to-br from-purple-50 to-purple-100 border-l-4 border-purple-500 p-6 rounded-xl shadow-lg hover-lift cursor-pointer" onclick="showServiceDetails('AEPS Withdrawal', 'aepsWithdrawal')">
+                        <h4 class="font-bold text-lg mb-2 text-purple-800">AEPS Money Withdrawal</h4>
+                        <p class="text-purple-600 font-bold text-xl">₹10</p>
+                    </div>
+                    <div class="service-card bg-gradient-to-br from-orange-50 to-orange-100 border-l-4 border-orange-500 p-6 rounded-xl shadow-lg hover-lift cursor-pointer" onclick="showServiceDetails('Insurance Schemes', 'insuranceSchemes')">
+                        <h4 class="font-bold text-lg mb-2 text-orange-800">PMJJBY, PMSBY, APY</h4>
+                        <p class="text-orange-600 font-bold text-xl">₹50</p>
+                    </div>
+                    <div class="service-card bg-gradient-to-br from-red-50 to-red-100 border-l-4 border-red-500 p-6 rounded-xl shadow-lg hover-lift cursor-pointer" onclick="showServiceDetails('Bill Payment', 'billPayment')">
+                        <h4 class="font-bold text-lg mb-2 text-red-800">Landline & DTH Recharge</h4>
+                        <p class="text-red-600 font-bold text-xl">₹10</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Banking Services -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-6 text-green-600">Banking and Financial Services</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                    <div class="service-card bg-gradient-to-br from-indigo-50 to-indigo-100 border-l-4 border-indigo-500 p-4 sm:p-6 rounded-lg shadow-md cursor-pointer pulse-hover" onclick="showServiceDetails('Aadhaar Card', 'aadhaarCard')">
+                        <h4 class="font-bold text-lg mb-2 text-indigo-800">Aadhaar Card Apply/Update</h4>
+                        <p class="text-indigo-600 font-bold text-xl">₹80</p>
+                    </div>
+                    <div class="service-card bg-gradient-to-br from-teal-50 to-teal-100 border-l-4 border-teal-500 p-6 rounded-lg shadow-md cursor-pointer" onclick="showServiceDetails('PAN Card', 'panCard')">
+                        <h4 class="font-bold text-lg mb-2 text-teal-800">PAN Card Application</h4>
+                        <p class="text-teal-600 font-bold text-xl">₹150</p>
+                    </div>
+                    <div class="service-card bg-gradient-to-br from-pink-50 to-pink-100 border-l-4 border-pink-500 p-6 rounded-lg shadow-md cursor-pointer" onclick="showServiceDetails('Voter ID', 'voterID')">
+                        <h4 class="font-bold text-lg mb-2 text-pink-800">Voter ID Card</h4>
+                        <p class="text-pink-600 font-bold text-xl">₹150</p>
+                    </div>
+                    <div class="service-card bg-gradient-to-br from-yellow-50 to-yellow-100 border-l-4 border-yellow-500 p-6 rounded-lg shadow-md cursor-pointer" onclick="showServiceDetails('Certificates', 'certificates')">
+                        <h4 class="font-bold text-lg mb-2 text-yellow-800">Income, Caste, Residence Certificates</h4>
+                        <p class="text-yellow-600 font-bold text-xl">₹100</p>
+                    </div>
+                    <div class="service-card bg-gradient-to-br from-cyan-50 to-cyan-100 border-l-4 border-cyan-500 p-6 rounded-lg shadow-md cursor-pointer" onclick="showServiceDetails('Birth Death Certificate', 'birthDeathCert')">
+                        <h4 class="font-bold text-lg mb-2 text-cyan-800">Birth & Death Certificates</h4>
+                        <p class="text-cyan-600 font-bold text-xl">₹150</p>
+                    </div>
+                    <div class="service-card bg-gradient-to-br from-emerald-50 to-emerald-100 border-l-4 border-emerald-500 p-6 rounded-lg shadow-md cursor-pointer" onclick="showServiceDetails('E-Shram Card', 'eShramCard')">
+                        <h4 class="font-bold text-lg mb-2 text-emerald-800">E-Shram Card Payment</h4>
+                        <p class="text-emerald-600 font-bold text-xl">₹100</p>
+                    </div>
+                    <div class="service-card bg-gradient-to-br from-violet-50 to-violet-100 border-l-4 border-violet-500 p-6 rounded-lg shadow-md cursor-pointer" onclick="showServiceDetails('Labor Card', 'laborCard')">
+                        <h4 class="font-bold text-lg mb-2 text-violet-800">Labor Card Application</h4>
+                        <p class="text-violet-600 font-bold text-xl">₹150</p>
+                    </div>
+                    <div class="service-card bg-gradient-to-br from-rose-50 to-rose-100 border-l-4 border-rose-500 p-6 rounded-lg shadow-md cursor-pointer" onclick="showServiceDetails('Driving License', 'drivingLicense')">
+                        <h4 class="font-bold text-lg mb-2 text-rose-800">Driving License Apply/Renew</h4>
+                        <p class="text-rose-600 font-bold text-xl">₹150</p>
+                    </div>
+                    <div class="service-card bg-gradient-to-br from-lime-50 to-lime-100 border-l-4 border-lime-500 p-6 rounded-lg shadow-md cursor-pointer" onclick="showServiceDetails('Ration Card', 'rationCard')">
+                        <h4 class="font-bold text-lg mb-2 text-lime-800">Ration Card Application</h4>
+                        <p class="text-lime-600 font-bold text-xl">₹100</p>
+                    </div>
+                    <div class="service-card bg-gradient-to-br from-amber-50 to-amber-100 border-l-4 border-amber-500 p-6 rounded-lg shadow-md cursor-pointer" onclick="showServiceDetails('Ayushman Card', 'ayushmanCard')">
+                        <h4 class="font-bold text-lg mb-2 text-amber-800">Ayushman Bharat Card</h4>
+                        <p class="text-amber-600 font-bold text-xl">₹100</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Travel & Bill Payments -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-6 text-purple-600">Travel & Bill Payments</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="service-card bg-gradient-to-br from-blue-50 to-blue-100 border-l-4 border-blue-500 p-6 rounded-lg shadow-md cursor-pointer" onclick="showServiceDetails('Railway Ticket', 'railwayTicket')">
+                        <h4 class="font-bold text-lg mb-2 text-blue-800">Railway Ticket Booking</h4>
+                        <p class="text-blue-600 font-bold text-xl">₹30</p>
+                    </div>
+                    <div class="service-card bg-gradient-to-br from-orange-50 to-orange-100 border-l-4 border-orange-500 p-6 rounded-lg shadow-md cursor-pointer" onclick="showServiceDetails('Electricity Bill', 'electricityBill')">
+                        <h4 class="font-bold text-lg mb-2 text-orange-800">Electricity & Gas Bills</h4>
+                        <p class="text-orange-600 font-bold text-xl">₹20</p>
+                    </div>
+                    <div class="service-card bg-gradient-to-br from-green-50 to-green-100 border-l-4 border-green-500 p-6 rounded-lg shadow-md cursor-pointer" onclick="showServiceDetails('Mobile Recharge', 'mobileRecharge')">
+                        <h4 class="font-bold text-lg mb-2 text-green-800">Mobile & DTH Recharge</h4>
+                        <p class="text-green-600 font-bold text-xl">₹00</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Government Schemes -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-6 text-indigo-600">Government Schemes & E-Services</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="service-card bg-gradient-to-br from-red-50 to-red-100 border-l-4 border-red-500 p-6 rounded-lg shadow-md cursor-pointer" onclick="showServiceDetails('Income Tax Return', 'incomeTaxReturn')">
+                        <h4 class="font-bold text-lg mb-2 text-red-800">Income Tax E-Return Filing</h4>
+                        <p class="text-red-600 font-bold text-xl">₹300</p>
+                    </div>
+                    <div class="service-card bg-gradient-to-br from-purple-50 to-purple-100 border-l-4 border-purple-500 p-6 rounded-lg shadow-md cursor-pointer" onclick="showServiceDetails('Jeevan Pramaan', 'jeevanPramaan')">
+                        <h4 class="font-bold text-lg mb-2 text-purple-800">Jeevan Pramaan Patra</h4>
+                        <p class="text-purple-600 font-bold text-xl">₹150</p>
+                    </div>
+                    <div class="service-card bg-gradient-to-br from-blue-50 to-blue-100 border-l-4 border-blue-500 p-6 rounded-lg shadow-md cursor-pointer" onclick="showServiceDetails('Passport Application', 'passportApplication')">
+                        <h4 class="font-bold text-lg mb-2 text-blue-800">Passport Application</h4>
+                        <p class="text-blue-600 font-bold text-xl">₹200</p>
+                    </div>
+                    <div class="service-card bg-gradient-to-br from-green-50 to-green-100 border-l-4 border-green-500 p-6 rounded-lg shadow-md cursor-pointer" onclick="showServiceDetails('E-Stamping', 'eStamping')">
+                        <h4 class="font-bold text-lg mb-2 text-green-800">E-Stamping Services</h4>
+                        <p class="text-green-600 font-bold text-xl">₹150</p>
+                    </div>
+                    <div class="service-card bg-gradient-to-br from-orange-50 to-orange-100 border-l-4 border-orange-500 p-6 rounded-lg shadow-md cursor-pointer" onclick="showServiceDetails('GeM Registration', 'gemRegistration')">
+                        <h4 class="font-bold text-lg mb-2 text-orange-800">GeM Registration</h4>
+                        <p class="text-orange-600 font-bold text-xl">₹150</p>
+                    </div>
+                    <div class="service-card bg-gradient-to-br from-indigo-50 to-indigo-100 border-l-4 border-indigo-500 p-6 rounded-lg shadow-md cursor-pointer" onclick="showServiceDetails('MSME Services', 'msmeServices')">
+                        <h4 class="font-bold text-lg mb-2 text-indigo-800">MSME Related Services</h4>
+                        <p class="text-indigo-600 font-bold text-xl">₹250</p>
+                    </div>
+                    <div class="service-card bg-gradient-to-br from-teal-50 to-teal-100 border-l-4 border-teal-500 p-6 rounded-lg shadow-md cursor-pointer" onclick="showServiceDetails('Kisan Samman Nidhi', 'kisanSammanNidhi')">
+                        <h4 class="font-bold text-lg mb-2 text-teal-800">Kisan Samman Nidhi</h4>
+                        <p class="text-teal-600 font-bold text-xl">₹100</p>
+                    </div>
+                    <div class="service-card bg-gradient-to-br from-pink-50 to-pink-100 border-l-4 border-pink-500 p-6 rounded-lg shadow-md cursor-pointer" onclick="showServiceDetails('Awas Yojana', 'awasYojana')">
+                        <h4 class="font-bold text-lg mb-2 text-pink-800">Awas Yojana Application</h4>
+                        <p class="text-pink-600 font-bold text-xl">₹120</p>
+                    </div>
+                    <div class="service-card bg-gradient-to-br from-yellow-50 to-yellow-100 border-l-4 border-yellow-500 p-6 rounded-lg shadow-md cursor-pointer" onclick="showServiceDetails('Kanya Sumangala Yojana', 'kanyaSumangalaYojana')">
+                        <h4 class="font-bold text-lg mb-2 text-yellow-800">Kanya Sumangala Yojana</h4>
+                        <p class="text-yellow-600 font-bold text-xl">₹100</p>
+                    </div>
+                    <div class="service-card bg-gradient-to-br from-cyan-50 to-cyan-100 border-l-4 border-cyan-500 p-6 rounded-lg shadow-md cursor-pointer" onclick="showServiceDetails('Old Age Pension', 'oldAgePension')">
+                        <h4 class="font-bold text-lg mb-2 text-cyan-800">Old Age Pension</h4>
+                        <p class="text-cyan-600 font-bold text-xl">₹100</p>
+                    </div>
+                    <div class="service-card bg-gradient-to-br from-emerald-50 to-emerald-100 border-l-4 border-emerald-500 p-6 rounded-lg shadow-md cursor-pointer" onclick="showServiceDetails('Widow Pension', 'widowPension')">
+                        <h4 class="font-bold text-lg mb-2 text-emerald-800">Widow Pension</h4>
+                        <p class="text-emerald-600 font-bold text-xl">₹100</p>
+                    </div>
+                    <div class="service-card bg-gradient-to-br from-violet-50 to-violet-100 border-l-4 border-violet-500 p-6 rounded-lg shadow-md cursor-pointer" onclick="showServiceDetails('Crop Insurance', 'cropInsurance')">
+                        <h4 class="font-bold text-lg mb-2 text-violet-800">Crop Insurance</h4>
+                        <p class="text-violet-600 font-bold text-xl">₹150</p>
+                    </div>
+                    <div class="service-card bg-gradient-to-br from-rose-50 to-rose-100 border-l-4 border-rose-500 p-6 rounded-lg shadow-md cursor-pointer" onclick="showServiceDetails('Scholarship Online Form', 'scholarshipOnlineForm')">
+                        <h4 class="font-bold text-lg mb-2 text-rose-800">Scholarship Online Form</h4>
+                        <p class="text-rose-600 font-bold text-xl">₹120</p>
+                    </div>
+                    <div class="service-card bg-gradient-to-br from-lime-50 to-lime-100 border-l-4 border-lime-500 p-6 rounded-lg shadow-md cursor-pointer" onclick="showServiceDetails('Admission Online Form', 'admissionOnlineForm')">
+                        <h4 class="font-bold text-lg mb-2 text-lime-800">Admission Online Form</h4>
+                        <p class="text-lime-600 font-bold text-xl">₹100</p>
+                    </div>
+                    <div class="service-card bg-gradient-to-br from-amber-50 to-amber-100 border-l-4 border-amber-500 p-6 rounded-lg shadow-md cursor-pointer" onclick="showServiceDetails('Job Apply', 'jobApply')">
+                        <h4 class="font-bold text-lg mb-2 text-amber-800">Job Application Online</h4>
+                        <p class="text-amber-600 font-bold text-xl">₹150</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Printing Press Services -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-6 text-pink-600">Printing Press Services</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="service-card bg-gradient-to-br from-pink-50 to-rose-100 border-l-4 border-pink-500 p-6 rounded-lg shadow-md cursor-pointer" onclick="showServiceDetails('Invitation Cards', 'invitationCards')">
+                        <h4 class="font-bold text-lg mb-2 text-pink-800">Wedding & Event Invitation Cards</h4>
+                        <p class="text-pink-600 font-bold text-xl">₹5-50 per piece</p>
+                    </div>
+                    <div class="service-card bg-gradient-to-br from-purple-50 to-purple-100 border-l-4 border-purple-500 p-6 rounded-lg shadow-md cursor-pointer" onclick="showServiceDetails('Pamphlets', 'pamphlets')">
+                        <h4 class="font-bold text-lg mb-2 text-purple-800">Pamphlets & Brochures</h4>
+                        <p class="text-purple-600 font-bold text-xl">₹2-10 per piece</p>
+                    </div>
+                    <div class="service-card bg-gradient-to-br from-indigo-50 to-indigo-100 border-l-4 border-indigo-500 p-6 rounded-lg shadow-md cursor-pointer" onclick="showServiceDetails('Banners', 'banners')">
+                        <h4 class="font-bold text-lg mb-2 text-indigo-800">Banners & Flex Printing</h4>
+                        <p class="text-indigo-600 font-bold text-xl">₹50-500 per sq ft</p>
+                    </div>
+                    <div class="service-card bg-gradient-to-br from-blue-50 to-blue-100 border-l-4 border-blue-500 p-6 rounded-lg shadow-md cursor-pointer" onclick="showServiceDetails('Visiting Cards', 'visitingCards')">
+                        <h4 class="font-bold text-lg mb-2 text-blue-800">Business Visiting Cards</h4>
+                        <p class="text-blue-600 font-bold text-xl">₹200-500 per 100</p>
+                    </div>
+                    <div class="service-card bg-gradient-to-br from-teal-50 to-teal-100 border-l-4 border-teal-500 p-6 rounded-lg shadow-md cursor-pointer" onclick="showServiceDetails('Letter Pads', 'letterPads')">
+                        <h4 class="font-bold text-lg mb-2 text-teal-800">Letter Pads & Envelopes</h4>
+                        <p class="text-teal-600 font-bold text-xl">₹300-800 per 100</p>
+                    </div>
+                    <div class="service-card bg-gradient-to-br from-orange-50 to-orange-100 border-l-4 border-orange-500 p-6 rounded-lg shadow-md cursor-pointer" onclick="showServiceDetails('Stickers', 'stickers')">
+                        <h4 class="font-bold text-lg mb-2 text-orange-800">Custom Stickers & Labels</h4>
+                        <p class="text-orange-600 font-bold text-xl">₹5-25 per piece</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Services -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-6 text-orange-600">Other Services</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="service-card bg-gradient-to-br from-slate-50 to-slate-100 border-l-4 border-slate-500 p-6 rounded-lg shadow-md cursor-pointer" onclick="showServiceDetails('Photocopy Lamination', 'photocopyLamination')">
+                        <h4 class="font-bold text-lg mb-2 text-slate-800">Photocopy & Lamination</h4>
+                        <p class="text-slate-600 font-bold text-xl">₹5-20</p>
+                    </div>
+                    <div class="service-card bg-gradient-to-br from-emerald-50 to-emerald-100 border-l-4 border-emerald-500 p-6 rounded-lg shadow-md cursor-pointer" onclick="showServiceDetails('Animal Insurance', 'animalInsurance')">
+                        <h4 class="font-bold text-lg mb-2 text-emerald-800">Animal Insurance</h4>
+                        <p class="text-emerald-600 font-bold text-xl">₹100</p>
+                    </div>
+                    <div class="service-card bg-gradient-to-br from-sky-50 to-sky-100 border-l-4 border-sky-500 p-6 rounded-lg shadow-md cursor-pointer" onclick="showServiceDetails('FASTag Services', 'fastagServices')">
+                        <h4 class="font-bold text-lg mb-2 text-sky-800">FASTag Services</h4>
+                        <p class="text-sky-600 font-bold text-xl">₹50</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gradient-to-br from-gray-50 to-indigo-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-8 text-center gradient-text">Contact Us</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Owner Contact -->
+                    <div class="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-6 sm:p-8 fade-in-up hover-lift border border-gray-100">
+                        <div class="text-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full mx-auto mb-4 flex items-center justify-center glow-effect">
+                                <span class="text-2xl text-white">👨‍💼</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800">Pritam Singh</h3>
+                            <p class="text-blue-600 font-semibold">Owner</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                                    <span class="text-green-600">📱</span>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500">Mobile</p>
+                                    <a href="tel:9140078867" class="text-lg font-semibold text-gray-800 hover:text-blue-600 transition-colors">9140078867</a>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                                    <span class="text-blue-600">✉️</span>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500">Email</p>
+                                    <a href="mailto:pritam.rath.75@gmail.com" class="text-lg font-semibold text-gray-800 hover:text-blue-600 transition-colors break-all">pritam.rath.75@gmail.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Head Contact -->
+                    <div class="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-6 sm:p-8 fade-in-up hover-lift border border-gray-100">
+                        <div class="text-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full mx-auto mb-4 flex items-center justify-center glow-effect">
+                                <span class="text-2xl text-white">👨‍💻</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800">Pramod Kumar</h3>
+                            <p class="text-purple-600 font-semibold">Head</p>
+                            <p class="text-gray-600 text-sm mt-1">Male</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                                    <span class="text-green-600">📱</span>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500">Mobile</p>
+                                    <a href="tel:6393050414" class="text-lg font-semibold text-gray-800 hover:text-blue-600 transition-colors">6393050414</a>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center">
+                                    <span class="text-yellow-600">📍</span>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500">Location</p>
+                                    <a href="https://g.co/kgs/64P9qcE" target="_blank" class="text-lg font-semibold text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                                        Village Kurra Main Road Rath
+                                    </a>
+                                    <p class="text-sm text-gray-600">Digital Online Center</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-8">
+                    <button onclick="contactWhatsApp('General Inquiry')" class="bg-gradient-to-r from-green-500 to-green-600 text-white px-8 py-3 rounded-full font-bold hover:from-green-600 hover:to-green-700 transition-all duration-300 transform hover:scale-105 shadow-lg mb-8">
+                        💬 Contact on WhatsApp
+                    </button>
+                    
+                    <!-- Social Media Links -->
+                    <div class="mt-8">
+                        <h3 class="text-xl font-bold text-gray-800 mb-6">Follow Us On Social Media</h3>
+                        <div class="flex justify-center space-x-6">
+                            <!-- Instagram -->
+                            <a href="#" class="social-icon instagram-gradient w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg">
+                                <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                            </a>
+                            
+                            <!-- YouTube -->
+                            <a href="#" class="social-icon youtube-gradient w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg">
+                                <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                </svg>
+                            </a>
+                            
+                            <!-- Twitter -->
+                            <a href="#" class="social-icon twitter-gradient w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg">
+                                <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                                </svg>
+                            </a>
+                            
+                            <!-- Telegram -->
+                            <a href="#" class="social-icon telegram-gradient w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg">
+                                <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                                </svg>
+                            </a>
+                        </div>
+                        <p class="text-gray-600 mt-4 text-sm">Stay connected with us for latest updates and offers!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-8 text-center gradient-text">About Our Cyber Café</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-6 sm:p-8 mb-8 fade-in-up hover-lift border border-gray-100">
+                    <div class="text-center mb-8">
+                        <div class="w-24 h-24 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full mx-auto mb-4 flex items-center justify-center glow-effect">
+                            <span class="text-3xl text-white">👨‍💼</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Pritam Singh</h3>
+                        <p class="text-blue-600 font-semibold">Owner & Founder</p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-800 mb-4">Professional Experience</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                                    <span class="text-gray-700"><strong>8 Years</strong> - Cyber Café Operations</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                                    <span class="text-gray-700"><strong>4 Years</strong> - Professional Accountant</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
+                                    <span class="text-gray-700"><strong>5 Years</strong> - Computer Teacher</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-800 mb-4">Our Services</h4>
+                            <p class="text-gray-600 leading-relaxed">
+                                Digital Online Center Kurra is your trusted cyber café providing comprehensive digital services. 
+                                We specialize in government document processing, banking services, online applications, 
+                                and computer education with professional expertise and customer satisfaction.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl">
+                        <h4 class="text-lg font-bold text-gray-800 mb-3 text-center">Our Mission</h4>
+                        <p class="text-gray-600 text-center">
+                            To make digital services accessible to everyone in our community with affordable rates, 
+                            reliable service, and professional guidance for all your digital needs.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Details Modal -->
+    <div id="serviceModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-md w-full max-h-96 overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 id="modalTitle" class="text-xl font-bold"></h3>
+                    <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="modalContent" class="mb-6"></div>
+                <button id="whatsappButton" class="w-full bg-green-500 text-white py-3 rounded-lg font-bold hover:bg-green-600 transition-colors">
+                    Contact on WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registration Modal -->
+    <div id="registerModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+            <div class="p-6 sm:p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold text-gray-800 flex items-center">
+                        <span class="text-3xl mr-3">📝</span>
+                        Customer Registration
+                    </h3>
+                    <button onclick="closeRegisterModal()" class="text-gray-500 hover:text-gray-700 p-2 rounded-full hover:bg-gray-100 transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <form id="registrationForm" class="space-y-6">
+                    <!-- Customer Details -->
+                    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-xl">
+                        <h4 class="text-lg font-bold text-blue-800 mb-4 flex items-center">
+                            <span class="text-xl mr-2">👤</span>
+                            Customer Details
+                        </h4>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Full Name *</label>
+                                <input type="text" id="customerName" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300" placeholder="Enter your full name">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Mobile Number *</label>
+                                <input type="tel" id="customerPhone" required pattern="[0-9]{10}" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300" placeholder="Enter 10-digit mobile number">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Meeting Time -->
+                    <div class="bg-gradient-to-r from-green-50 to-emerald-50 p-4 rounded-xl">
+                        <h4 class="text-lg font-bold text-green-800 mb-4 flex items-center">
+                            <span class="text-xl mr-2">⏰</span>
+                            Preferred Meeting Time
+                        </h4>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Date *</label>
+                                <input type="date" id="meetingDate" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Time *</label>
+                                <select id="meetingTime" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300">
+                                    <option value="">Select time</option>
+                                    <option value="09:00 AM">09:00 AM</option>
+                                    <option value="10:00 AM">10:00 AM</option>
+                                    <option value="11:00 AM">11:00 AM</option>
+                                    <option value="12:00 PM">12:00 PM</option>
+                                    <option value="01:00 PM">01:00 PM</option>
+                                    <option value="02:00 PM">02:00 PM</option>
+                                    <option value="03:00 PM">03:00 PM</option>
+                                    <option value="04:00 PM">04:00 PM</option>
+                                    <option value="05:00 PM">05:00 PM</option>
+                                    <option value="06:00 PM">06:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service Selection -->
+                    <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-4 rounded-xl">
+                        <h4 class="text-lg font-bold text-purple-800 mb-4 flex items-center">
+                            <span class="text-xl mr-2">🛠️</span>
+                            Select Services (Maximum 2)
+                        </h4>
+                        <div id="serviceSelectionCount" class="text-sm text-gray-600 mb-3">
+                            Selected: <span id="selectedCount">0</span>/2 services
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-3 max-h-60 overflow-y-auto">
+                            <!-- Government Documents -->
+                            <div class="space-y-2">
+                                <h5 class="font-semibold text-blue-700 text-sm">Government Documents</h5>
+                                <label class="flex items-center space-x-2 p-2 hover:bg-white rounded cursor-pointer">
+                                    <input type="checkbox" class="service-checkbox" value="Bank Account Opening & Aadhaar Linking - ₹100">
+                                    <span class="text-sm">Bank Account Opening - 3100</span>
+                                </label>
+                                <label class="flex items-center space-x-2 p-2 hover:bg-white rounded cursor-pointer">
+                                    <input type="checkbox" class="service-checkbox" value="Aadhaar Card Apply/Update - ₹80">
+                                    <span class="text-sm">Aadhaar Card - ₹80</span>
+                                </label>
+                                <label class="flex items-center space-x-2 p-2 hover:bg-white rounded cursor-pointer">
+                                    <input type="checkbox" class="service-checkbox" value="PAN Card Application - ₹120">
+                                    <span class="text-sm">PAN Card - ₹150</span>
+                                </label>
+                                <label class="flex items-center space-x-2 p-2 hover:bg-white rounded cursor-pointer">
+                                    <input type="checkbox" class="service-checkbox" value="Voter ID Card - ₹60">
+                                    <span class="text-sm">Voter ID Card - ₹150</span>
+                                </label>
+                                <label class="flex items-center space-x-2 p-2 hover:bg-white rounded cursor-pointer">
+                                    <input type="checkbox" class="service-checkbox" value="Driving License Apply/Renew - ₹150">
+                                    <span class="text-sm">Driving License - ₹150</span>
+                                </label>
+                            </div>
+
+                            <!-- Banking Services -->
+                            <div class="space-y-2">
+                                <h5 class="font-semibold text-green-700 text-sm">Banking Services</h5>
+                                <label class="flex items-center space-x-2 p-2 hover:bg-white rounded cursor-pointer">
+                                    <input type="checkbox" class="service-checkbox" value="Money Transfer & Payment Services - ₹25">
+                                    <span class="text-sm">Money Transfer - ₹10</span>
+                                </label>
+                                <label class="flex items-center space-x-2 p-2 hover:bg-white rounded cursor-pointer">
+                                    <input type="checkbox" class="service-checkbox" value="AEPS Money Withdrawal - ₹15">
+                                    <span class="text-sm">AEPS Withdrawal - ₹10</span>
+                                </label>
+                                <label class="flex items-center space-x-2 p-2 hover:bg-white rounded cursor-pointer">
+                                    <input type="checkbox" class="service-checkbox" value="PMJJBY, PMSBY, APY - ₹50">
+                                    <span class="text-sm">Insurance Schemes - ₹150</span>
+                                </label>
+                                <label class="flex items-center space-x-2 p-2 hover:bg-white rounded cursor-pointer">
+                                    <input type="checkbox" class="service-checkbox" value="Income, Caste, Residence Certificates - ₹100">
+                                    <span class="text-sm">Certificates - ₹100</span>
+                                </label>
+                                <label class="flex items-center space-x-2 p-2 hover:bg-white rounded cursor-pointer">
+                                    <input type="checkbox" class="service-checkbox" value="E-Shram Card Payment - ₹40">
+                                    <span class="text-sm">E-Shram Card - ₹100</span>
+                                </label>
+                            </div>
+
+                            <!-- Travel & Bills -->
+                            <div class="space-y-2">
+                                <h5 class="font-semibold text-purple-700 text-sm">Travel & Bills</h5>
+                                <label class="flex items-center space-x-2 p-2 hover:bg-white rounded cursor-pointer">
+                                    <input type="checkbox" class="service-checkbox" value="Railway Ticket Booking - ₹30">
+                                    <span class="text-sm">Railway Ticket - ₹30</span>
+                                </label>
+                                <label class="flex items-center space-x-2 p-2 hover:bg-white rounded cursor-pointer">
+                                    <input type="checkbox" class="service-checkbox" value="Electricity & Gas Bills - ₹25">
+                                    <span class="text-sm">Electricity Bills - ₹20</span>
+                                </label>
+                                <label class="flex items-center space-x-2 p-2 hover:bg-white rounded cursor-pointer">
+                                    <input type="checkbox" class="service-checkbox" value="Mobile & DTH Recharge - ₹15">
+                                    <span class="text-sm">Mobile Recharge - ₹00</span>
+                                </label>
+                                <label class="flex items-center space-x-2 p-2 hover:bg-white rounded cursor-pointer">
+                                    <input type="checkbox" class="service-checkbox" value="Landline & DTH Recharge - ₹20">
+                                    <span class="text-sm">DTH Recharge - ₹10</span>
+                                </label>
+                            </div>
+
+                            <!-- Government Schemes -->
+                            <div class="space-y-2">
+                                <h5 class="font-semibold text-orange-700 text-sm">Government Schemes</h5>
+                                <label class="flex items-center space-x-2 p-2 hover:bg-white rounded cursor-pointer">
+                                    <input type="checkbox" class="service-checkbox" value="Income Tax E-Return Filing - ₹300">
+                                    <span class="text-sm">Income Tax Return - ₹300</span>
+                                </label>
+                                <label class="flex items-center space-x-2 p-2 hover:bg-white rounded cursor-pointer">
+                                    <input type="checkbox" class="service-checkbox" value="Passport Application - ₹200">
+                                    <span class="text-sm">Passport Application - ₹200</span>
+                                </label>
+                                <label class="flex items-center space-x-2 p-2 hover:bg-white rounded cursor-pointer">
+                                    <input type="checkbox" class="service-checkbox" value="Kisan Samman Nidhi - ₹80">
+                                    <span class="text-sm">Kisan Samman Nidhi - ₹100</span>
+                                </label>
+                                <label class="flex items-center space-x-2 p-2 hover:bg-white rounded cursor-pointer">
+                                    <input type="checkbox" class="service-checkbox" value="Ayushman Bharat Card - ₹70">
+                                    <span class="text-sm">Ayushman Card - ₹100</span>
+                                </label>
+                                <label class="flex items-center space-x-2 p-2 hover:bg-white rounded cursor-pointer">
+                                    <input type="checkbox" class="service-checkbox" value="Scholarship Online Form - ₹60">
+                                    <span class="text-sm">Scholarship Form - ₹120</span>
+                                </label>
+                            </div>
+
+                            <!-- Printing Press Services -->
+                            <div class="space-y-2">
+                                <h5 class="font-semibold text-pink-700 text-sm">Printing Press</h5>
+                                <label class="flex items-center space-x-2 p-2 hover:bg-white rounded cursor-pointer">
+                                    <input type="checkbox" class="service-checkbox" value="Wedding & Event Invitation Cards - ₹5-50 per piece">
+                                    <span class="text-sm">Invitation Cards - ₹5-50</span>
+                                </label>
+                                <label class="flex items-center space-x-2 p-2 hover:bg-white rounded cursor-pointer">
+                                    <input type="checkbox" class="service-checkbox" value="Pamphlets & Brochures - ₹2-10 per piece">
+                                    <span class="text-sm">Pamphlets - ₹2-10</span>
+                                </label>
+                                <label class="flex items-center space-x-2 p-2 hover:bg-white rounded cursor-pointer">
+                                    <input type="checkbox" class="service-checkbox" value="Banners & Flex Printing - ₹50-500 per sq ft">
+                                    <span class="text-sm">Banners - ₹50-500</span>
+                                </label>
+                                <label class="flex items-center space-x-2 p-2 hover:bg-white rounded cursor-pointer">
+                                    <input type="checkbox" class="service-checkbox" value="Business Visiting Cards - ₹200-500 per 100">
+                                    <span class="text-sm">Visiting Cards - ₹200-500</span>
+                                </label>
+                                <label class="flex items-center space-x-2 p-2 hover:bg-white rounded cursor-pointer">
+                                    <input type="checkbox" class="service-checkbox" value="Letter Pads & Envelopes - ₹300-800 per 100">
+                                    <span class="text-sm">Letter Pads - ₹300-800</span>
+                                </label>
+                                <label class="flex items-center space-x-2 p-2 hover:bg-white rounded cursor-pointer">
+                                    <input type="checkbox" class="service-checkbox" value="Custom Stickers & Labels - ₹5-25 per piece">
+                                    <span class="text-sm">Stickers - ₹5-25</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="flex space-x-4">
+                        <button type="button" onclick="closeRegisterModal()" class="flex-1 bg-gray-500 text-white py-3 px-6 rounded-lg font-bold hover:bg-gray-600 transition-colors">
+                            Cancel
+                        </button>
+                        <button type="submit" class="flex-1 bg-gradient-to-r from-green-500 to-green-600 text-white py-3 px-6 rounded-lg font-bold hover:from-green-600 hover:to-green-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                            📱 Submit Registration
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Service details data
+        const serviceDetails = {
+            bankAccount: {
+                documents: ['Aadhaar Card', 'PAN Card', 'Passport Size Photo', 'Address Proof', 'Income Proof']
+            },
+            moneyTransfer: {
+                documents: ['Aadhaar Card', 'Bank Account Details', 'Mobile Number']
+            },
+            aepsWithdrawal: {
+                documents: ['Aadhaar Card', 'Registered Mobile Number', 'Fingerprint']
+            },
+            insuranceSchemes: {
+                documents: ['Aadhaar Card', 'Bank Account Details', 'Nominee Details', 'Age Proof']
+            },
+            billPayment: {
+                documents: ['Bill Copy', 'Customer ID/Account Number']
+            },
+            aadhaarCard: {
+                documents: ['Birth Certificate', 'Address Proof', 'Identity Proof', 'Passport Size Photo']
+            },
+            panCard: {
+                documents: ['Aadhaar Card', 'Address Proof', 'Date of Birth Proof', 'Passport Size Photo']
+            },
+            voterID: {
+                documents: ['Aadhaar Card', 'Address Proof', 'Age Proof', 'Passport Size Photo']
+            },
+            certificates: {
+                documents: ['Aadhaar Card', 'Address Proof', 'Application Form', 'Supporting Documents']
+            },
+            birthDeathCert: {
+                documents: ['Hospital Certificate', 'Identity Proof', 'Address Proof', 'Application Form']
+            },
+            eShramCard: {
+                documents: ['Aadhaar Card', 'Bank Account Details', 'Mobile Number', 'Passport Size Photo']
+            },
+            railwayTicket: {
+                documents: ['Valid ID Proof', 'Passenger Details']
+            },
+            electricityBill: {
+                documents: ['Previous Bill', 'Consumer Number', 'Payment Amount']
+            },
+            mobileRecharge: {
+                documents: ['Mobile Number', 'Recharge Amount']
+            },
+            incomeTaxReturn: {
+                documents: ['PAN Card', 'Aadhaar Card', 'Form 16', 'Bank Statements', 'Investment Proofs']
+            },
+            jeevanPramaan: {
+                documents: ['Aadhaar Card', 'Pension Payment Order', 'Bank Account Details']
+            },
+            passportApplication: {
+                documents: ['Birth Certificate', 'Address Proof', 'Identity Proof', 'Passport Size Photos']
+            },
+            eStamping: {
+                documents: ['Document Details', 'Stamp Value Required', 'Identity Proof']
+            },
+            gemRegistration: {
+                documents: ['Business Registration', 'PAN Card', 'GST Certificate', 'Bank Details']
+            },
+            msmeServices: {
+                documents: ['Business Registration', 'PAN Card', 'Aadhaar Card', 'Bank Details']
+            },
+            photocopyLamination: {
+                documents: ['Original Documents to be copied/laminated']
+            },
+            animalInsurance: {
+                documents: ['Animal Health Certificate', 'Owner Identity Proof', 'Address Proof']
+            },
+            fastagServices: {
+                documents: ['Vehicle Registration Certificate', 'Identity Proof', 'Address Proof']
+            },
+            invitationCards: {
+                documents: ['Event Details', 'Design Preferences', 'Text Content', 'Sample Images (if any)']
+            },
+            pamphlets: {
+                documents: ['Content Text', 'Images/Graphics', 'Size Requirements', 'Quantity Needed']
+            },
+            banners: {
+                documents: ['Banner Content', 'Size Specifications', 'Design Requirements', 'Installation Details']
+            },
+            visitingCards: {
+                documents: ['Business Details', 'Contact Information', 'Logo/Design', 'Card Material Preference']
+            },
+            letterPads: {
+                documents: ['Company/Personal Details', 'Logo', 'Header/Footer Content', 'Paper Quality Preference']
+            },
+            stickers: {
+                documents: ['Sticker Content', 'Size Requirements', 'Design/Logo', 'Quantity Needed', 'Material Type']
+            },
+            laborCard: {
+                documents: ['Aadhaar Card', 'Employment Certificate', 'Address Proof', 'Passport Size Photo', 'Bank Account Details']
+            },
+            drivingLicense: {
+                documents: ['Aadhaar Card', 'Address Proof', 'Age Proof', 'Medical Certificate', 'Passport Size Photos', 'Learning License (for permanent)']
+            },
+            rationCard: {
+                documents: ['Aadhaar Card', 'Address Proof', 'Income Certificate', 'Family Details', 'Passport Size Photos']
+            },
+            ayushmanCard: {
+                documents: ['Aadhaar Card', 'Ration Card', 'SECC-2011 Data', 'Mobile Number', 'Passport Size Photo']
+            },
+            kisanSammanNidhi: {
+                documents: ['Aadhaar Card', 'Bank Account Details', 'Land Records', 'Mobile Number', 'Passport Size Photo']
+            },
+            awasYojana: {
+                documents: ['Aadhaar Card', 'Income Certificate', 'Caste Certificate', 'Bank Account Details', 'Land Documents', 'Passport Size Photo']
+            },
+            kanyaSumangalaYojana: {
+                documents: ['Aadhaar Card', 'Birth Certificate of Girl Child', 'Income Certificate', 'Bank Account Details', 'Passport Size Photo']
+            },
+            oldAgePension: {
+                documents: ['Aadhaar Card', 'Age Proof Certificate', 'Income Certificate', 'Bank Account Details', 'Passport Size Photo']
+            },
+            widowPension: {
+                documents: ['Aadhaar Card', 'Husband Death Certificate', 'Income Certificate', 'Bank Account Details', 'Passport Size Photo']
+            },
+            cropInsurance: {
+                documents: ['Aadhaar Card', 'Land Records', 'Bank Account Details', 'Crop Details', 'Sowing Certificate']
+            },
+            scholarshipOnlineForm: {
+                documents: ['Aadhaar Card', 'Educational Certificates', 'Income Certificate', 'Caste Certificate', 'Bank Account Details']
+            },
+            admissionOnlineForm: {
+                documents: ['Educational Certificates', 'Transfer Certificate', 'Character Certificate', 'Caste Certificate', 'Passport Size Photos']
+            },
+            jobApply: {
+                documents: ['Resume/CV', 'Educational Certificates', 'Experience Certificates', 'Aadhaar Card', 'Passport Size Photos']
+            }
+        };
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.getElementById('mobileMenuBtn');
+            const lines = btn.querySelectorAll('.hamburger-line');
+            
+            menu.classList.toggle('hidden');
+            
+            // Animate hamburger lines
+            if (menu.classList.contains('hidden')) {
+                // Close animation - back to hamburger
+                lines[0].style.transform = 'rotate(0deg) translateY(0px)';
+                lines[1].style.opacity = '1';
+                lines[2].style.transform = 'rotate(0deg) translateY(0px)';
+            } else {
+                // Open animation - to X
+                lines[0].style.transform = 'rotate(45deg) translateY(8px)';
+                lines[1].style.opacity = '0';
+                lines[2].style.transform = 'rotate(-45deg) translateY(-8px)';
+            }
+        }
+
+        function openNotification() {
+            alert('📢 Latest Notifications:\n\n• Government scheme updates available\n• New document processing services\n• Digital payment facility updates\n• Visit our center for complete details');
+        }
+
+        function openEducationWebsite() {
+            alert('🎓 Education Services:\n\n• Computer training courses\n• Digital literacy programs\n• Online form filling guidance\n• Certificate courses available\n• Visit our center for enrollment');
+        }
+
+        function openJobsPortal() {
+            alert('💼 Job Opportunities:\n\n• Government job application assistance\n• Private sector job applications\n• Resume preparation services\n• Interview guidance available\n• Visit our center for job assistance');
+        }
+
+        function openPrintingPress() {
+            alert('🖨️ Printing Press Services:\n\n• Wedding invitation cards\n• Business visiting cards\n• Banners and flex printing\n• Pamphlets and brochures\n• Custom stickers and labels\n• Visit our center for printing needs');
+        }
+
+        let currentLanguage = 'english';
+
+        const translations = {
+            english: {
+                servicesTitle: 'Our Services',
+                govDocuments: 'Government Documents & ID Cards',
+                bankingServices: 'Banking and Financial Services',
+                travelBills: 'Travel & Bill Payments',
+                govSchemes: 'Government Schemes & E-Services',
+                printingServices: 'Printing Press Services',
+                otherServices: 'Other Services',
+                bankAccountOpening: 'Bank Account Opening & Aadhaar Linking',
+                moneyTransfer: 'Money Transfer & Payment Services',
+                aepsWithdrawal: 'AEPS Money Withdrawal',
+                insuranceSchemes: 'PMJJBY, PMSBY, APY',
+                billPayment: 'Landline & DTH Recharge',
+                aadhaarCard: 'Aadhaar Card Apply/Update',
+                panCard: 'PAN Card Application',
+                voterID: 'Voter ID Card',
+                certificates: 'Income, Caste, Residence Certificates',
+                birthDeathCert: 'Birth & Death Certificates',
+                eShramCard: 'E-Shram Card Payment',
+                laborCard: 'Labor Card Application',
+                drivingLicense: 'Driving License Apply/Renew',
+                rationCard: 'Ration Card Application',
+                ayushmanCard: 'Ayushman Bharat Card',
+                railwayTicket: 'Railway Ticket Booking',
+                electricityBill: 'Electricity & Gas Bills',
+                mobileRecharge: 'Mobile & DTH Recharge',
+                incomeTaxReturn: 'Income Tax E-Return Filing',
+                jeevanPramaan: 'Jeevan Pramaan Patra',
+                passportApplication: 'Passport Application',
+                eStamping: 'E-Stamping Services',
+                gemRegistration: 'GeM Registration',
+                msmeServices: 'MSME Related Services',
+                kisanSammanNidhi: 'Kisan Samman Nidhi',
+                awasYojana: 'Awas Yojana Application',
+                kanyaSumangalaYojana: 'Kanya Sumangala Yojana',
+                oldAgePension: 'Old Age Pension',
+                widowPension: 'Widow Pension',
+                cropInsurance: 'Crop Insurance',
+                scholarshipOnlineForm: 'Scholarship Online Form',
+                admissionOnlineForm: 'Admission Online Form',
+                jobApply: 'Job Application Online',
+                photocopyLamination: 'Photocopy & Lamination',
+                animalInsurance: 'Animal Insurance',
+                fastagServices: 'FASTag Services',
+                invitationCards: 'Wedding & Event Invitation Cards',
+                pamphlets: 'Pamphlets & Brochures',
+                banners: 'Banners & Flex Printing',
+                visitingCards: 'Business Visiting Cards',
+                letterPads: 'Letter Pads & Envelopes',
+                stickers: 'Custom Stickers & Labels'
+            },
+            hindi: {
+                servicesTitle: 'हमारी सेवाएं',
+                govDocuments: 'सरकारी दस्तावेज और पहचान पत्र',
+                bankingServices: 'बैंकिंग और वित्तीय सेवाएं',
+                travelBills: 'यात्रा और बिल भुगतान',
+                govSchemes: 'सरकारी योजनाएं और ई-सेवाएं',
+                printingServices: 'प्रिंटिंग प्रेस सेवाएं',
+                otherServices: 'अन्य सेवाएं',
+                bankAccountOpening: 'बैंक खाता खोलना और आधार लिंकिंग',
+                moneyTransfer: 'पैसे ट्रांसफर और पेमेंट सेवाएं',
+                aepsWithdrawal: 'AEPS पैसे निकालना',
+                insuranceSchemes: 'PMJJBY, PMSBY, APY',
+                billPayment: 'लैंडलाइन और DTH रिचार्ज',
+                aadhaarCard: 'आधार कार्ड आवेदन/अपडेट',
+                panCard: 'पैन कार्ड आवेदन',
+                voterID: 'वोटर आईडी कार्ड',
+                certificates: 'आय, जाति, निवास प्रमाण पत्र',
+                birthDeathCert: 'जन्म और मृत्यु प्रमाण पत्र',
+                eShramCard: 'ई-श्रम कार्ड भुगतान',
+                laborCard: 'लेबर कार्ड आवेदन',
+                drivingLicense: 'ड्राइविंग लाइसेंस आवेदन/नवीनीकरण',
+                rationCard: 'राशन कार्ड आवेदन',
+                ayushmanCard: 'आयुष्मान भारत कार्ड',
+                railwayTicket: 'रेलवे टिकट बुकिंग',
+                electricityBill: 'बिजली और गैस बिल',
+                mobileRecharge: 'मोबाइल और DTH रिचार्ज',
+                incomeTaxReturn: 'आयकर ई-रिटर्न फाइलिंग',
+                jeevanPramaan: 'जीवन प्रमाण पत्र',
+                passportApplication: 'पासपोर्ट आवेदन',
+                eStamping: 'ई-स्टैम्पिंग सेवाएं',
+                gemRegistration: 'GeM पंजीकरण',
+                msmeServices: 'MSME संबंधित सेवाएं',
+                kisanSammanNidhi: 'किसान सम्मान निधि',
+                awasYojana: 'आवास योजना आवेदन',
+                kanyaSumangalaYojana: 'कन्या सुमंगला योजना',
+                oldAgePension: 'वृद्धावस्था पेंशन',
+                widowPension: 'विधवा पेंशन',
+                cropInsurance: 'फसल बीमा',
+                scholarshipOnlineForm: 'छात्रवृत्ति ऑनलाइन फॉर्म',
+                admissionOnlineForm: 'प्रवेश ऑनलाइन फॉर्म',
+                jobApply: 'नौकरी आवेदन ऑनलाइन',
+                photocopyLamination: 'फोटोकॉपी और लैमिनेशन',
+                animalInsurance: 'पशु बीमा',
+                fastagServices: 'FASTag सेवाएं',
+                invitationCards: 'शादी और कार्यक्रम निमंत्रण कार्ड',
+                pamphlets: 'पैम्फलेट और ब्रोशर',
+                banners: 'बैनर और फ्लेक्स प्रिंटिंग',
+                visitingCards: 'व्यापारिक विजिटिंग कार्ड',
+                letterPads: 'लेटर पैड और लिफाफे',
+                stickers: 'कस्टम स्टिकर और लेबल'
+            }
+        };
+
+        function switchLanguage(language) {
+            currentLanguage = language;
+            
+            // Update button styles
+            const englishBtn = document.getElementById('englishBtn');
+            const hindiBtn = document.getElementById('hindiBtn');
+            
+            if (language === 'english') {
+                englishBtn.className = 'px-4 py-2 rounded-full font-semibold transition-all duration-300 bg-blue-500 text-white';
+                hindiBtn.className = 'px-4 py-2 rounded-full font-semibold transition-all duration-300 text-gray-600 hover:text-blue-500';
+            } else {
+                hindiBtn.className = 'px-4 py-2 rounded-full font-semibold transition-all duration-300 bg-blue-500 text-white';
+                englishBtn.className = 'px-4 py-2 rounded-full font-semibold transition-all duration-300 text-gray-600 hover:text-blue-500';
+            }
+            
+            // Update all text content
+            updateLanguageContent(language);
+        }
+
+        function updateLanguageContent(language) {
+            const texts = translations[language];
+            
+            // Update main titles
+            document.getElementById('servicesTitle').textContent = texts.servicesTitle;
+            
+            // Update section headers
+            const sectionHeaders = document.querySelectorAll('h3');
+            sectionHeaders[0].textContent = texts.govDocuments;
+            sectionHeaders[1].textContent = texts.bankingServices;
+            sectionHeaders[2].textContent = texts.travelBills;
+            sectionHeaders[3].textContent = texts.govSchemes;
+            sectionHeaders[4].textContent = texts.printingServices;
+            sectionHeaders[5].textContent = texts.otherServices;
+            
+            // Update service cards
+            const serviceCards = document.querySelectorAll('.service-card h4');
+            const serviceKeys = [
+                'bankAccountOpening', 'moneyTransfer', 'aepsWithdrawal', 'insuranceSchemes', 'billPayment',
+                'aadhaarCard', 'panCard', 'voterID', 'certificates', 'birthDeathCert', 'eShramCard',
+                'laborCard', 'drivingLicense', 'rationCard', 'ayushmanCard',
+                'railwayTicket', 'electricityBill', 'mobileRecharge',
+                'incomeTaxReturn', 'jeevanPramaan', 'passportApplication', 'eStamping', 'gemRegistration',
+                'msmeServices', 'kisanSammanNidhi', 'awasYojana', 'kanyaSumangalaYojana', 'oldAgePension',
+                'widowPension', 'cropInsurance', 'scholarshipOnlineForm', 'admissionOnlineForm', 'jobApply',
+                'invitationCards', 'pamphlets', 'banners', 'visitingCards', 'letterPads', 'stickers',
+                'photocopyLamination', 'animalInsurance', 'fastagServices'
+            ];
+            
+            serviceCards.forEach((card, index) => {
+                if (serviceKeys[index] && texts[serviceKeys[index]]) {
+                    card.textContent = texts[serviceKeys[index]];
+                }
+            });
+        }
+
+        function showServiceDetails(serviceName, serviceKey) {
+            const modal = document.getElementById('serviceModal');
+            const title = document.getElementById('modalTitle');
+            const content = document.getElementById('modalContent');
+            const whatsappBtn = document.getElementById('whatsappButton');
+            
+            title.textContent = serviceName;
+            
+            const documents = serviceDetails[serviceKey].documents;
+            content.innerHTML = `
+                <h4 class="font-bold mb-3">Required Documents:</h4>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    ${documents.map(doc => `<li>${doc}</li>`).join('')}
+                </ul>
+            `;
+            
+            whatsappBtn.onclick = () => contactWhatsApp(serviceName);
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('serviceModal').classList.add('hidden');
+        }
+
+        function contactWhatsApp(serviceName) {
+            const message = `Hi, I need help with: ${serviceName}`;
+            const whatsappUrl = `https://wa.me/919140078867?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Registration Modal Functions
+        function openRegisterModal() {
+            document.getElementById('registerModal').classList.remove('hidden');
+            // Set minimum date to today
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('meetingDate').setAttribute('min', today);
+        }
+
+        function closeRegisterModal() {
+            document.getElementById('registerModal').classList.add('hidden');
+            document.getElementById('registrationForm').reset();
+            updateServiceCount();
+        }
+
+        // Service selection limit functionality
+        function updateServiceCount() {
+            const checkboxes = document.querySelectorAll('.service-checkbox');
+            const checkedBoxes = document.querySelectorAll('.service-checkbox:checked');
+            const count = checkedBoxes.length;
+            
+            document.getElementById('selectedCount').textContent = count;
+            
+            // Disable unchecked boxes if limit reached
+            checkboxes.forEach(checkbox => {
+                if (!checkbox.checked && count >= 2) {
+                    checkbox.disabled = true;
+                    checkbox.parentElement.style.opacity = '0.5';
+                } else {
+                    checkbox.disabled = false;
+                    checkbox.parentElement.style.opacity = '1';
+                }
+            });
+        }
+
+        // Add event listeners to service checkboxes
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('.service-checkbox');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', updateServiceCount);
+            });
+        });
+
+        // Registration form submission
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('customerName').value;
+            const phone = document.getElementById('customerPhone').value;
+            const date = document.getElementById('meetingDate').value;
+            const time = document.getElementById('meetingTime').value;
+            const selectedServices = Array.from(document.querySelectorAll('.service-checkbox:checked'))
+                .map(checkbox => checkbox.value);
+            
+            // Validate phone number
+            if (!/^[0-9]{10}$/.test(phone)) {
+                alert('Please enter a valid 10-digit mobile number');
+                return;
+            }
+            
+            // Validate service selection
+            if (selectedServices.length === 0) {
+                alert('Please select at least one service');
+                return;
+            }
+            
+            if (selectedServices.length > 2) {
+                alert('You can select maximum 2 services only');
+                return;
+            }
+            
+            // Format the message for WhatsApp
+            const message = `🔔 NEW CUSTOMER REGISTRATION 🔔
+
+👤 Customer Details:
+Name: ${name}
+Mobile: ${phone}
+
+⏰ Meeting Schedule:
+Date: ${date}
+Time: ${time}
+
+🛠️ Selected Services:
+${selectedServices.map((service, index) => `${index + 1}. ${service}`).join('\n')}
+
+📍 Location: Digital Online Center Kurra
+Village Kurra Main Road Rath
+
+Please confirm the appointment.`;
+            
+            // Send to WhatsApp
+            const whatsappUrl = `https://wa.me/919140078867?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            
+            // Close modal and show success message
+            closeRegisterModal();
+            alert('Registration submitted successfully! Please check WhatsApp for confirmation.');
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('serviceModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        document.getElementById('registerModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeRegisterModal();
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97317b0f056d54fb',t:'MTc1NTg1NjM4MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

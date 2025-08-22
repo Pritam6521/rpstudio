@@ -1,0 +1,1945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechLearn Academy - Computer Courses</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .typing-cursor {
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .pulse-effect {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* ========== REGISTRATION FORM STYLING STARTS HERE ========== */
+        .registration-form {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        
+        .form-input {
+            background: rgba(255,255,255,0.9);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            background: white;
+            border-color: #f5576c;
+            box-shadow: 0 0 20px rgba(245,87,108,0.3);
+        }
+        
+        .form-label {
+            color: white;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transform: translateY(0);
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(102,126,234,0.4);
+        }
+        /* ========== REGISTRATION FORM STYLING ENDS HERE ========== */
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="gradient-bg shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <!-- Logo and Text -->
+                    <div class="flex items-center space-x-3">
+                        <!-- Logo SVG -->
+                        <div class="bg-white rounded-lg p-2 shadow-lg">
+                            <svg width="40" height="40" viewBox="0 0 40 40" class="text-purple-600">
+                                <!-- Computer Monitor -->
+                                <rect x="8" y="10" width="24" height="16" rx="2" fill="currentColor" stroke="white" stroke-width="1"/>
+                                <rect x="10" y="12" width="20" height="12" rx="1" fill="white"/>
+                                <!-- Screen Content -->
+                                <rect x="12" y="14" width="16" height="8" rx="1" fill="#4299E1"/>
+                                <text x="20" y="19" text-anchor="middle" fill="white" font-family="Arial" font-size="4" font-weight="bold">TL</text>
+                                <!-- Stand -->
+                                <rect x="18" y="26" width="4" height="3" fill="currentColor"/>
+                                <rect x="14" y="29" width="12" height="2" rx="1" fill="currentColor"/>
+                                <!-- Graduation Cap -->
+                                <path d="M20 6 L28 9 L20 12 L12 9 Z" fill="#FFD700"/>
+                                <rect x="19" y="6" width="2" height="6" fill="#FFD700"/>
+                                <circle cx="21" cy="6" r="1" fill="#FFD700"/>
+                            </svg>
+                        </div>
+                        <!-- Text -->
+                        <div>
+                            <h1 class="text-white text-xl font-bold leading-tight" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5); background: linear-gradient(45deg, #FFD700, #FFA500); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">TECHLEARN</h1>
+                            <p class="text-white text-xs opacity-90 leading-tight">Education Academy</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#home" onclick="showSection('home')" class="text-white hover:bg-white hover:bg-opacity-20 px-3 py-2 rounded-md text-sm font-medium transition duration-300">Home</a>
+                        <a href="#courses" onclick="showSection('courses')" class="text-white hover:bg-white hover:bg-opacity-20 px-3 py-2 rounded-md text-sm font-medium transition duration-300">Courses</a>
+                        <a href="#paid-courses" onclick="showSection('paid-courses')" class="text-white hover:bg-white hover:bg-opacity-20 px-3 py-2 rounded-md text-sm font-medium transition duration-300">Paid Courses</a>
+                        <a href="#registration" onclick="showSection('registration')" class="text-white hover:bg-white hover:bg-opacity-20 px-3 py-2 rounded-md text-sm font-medium transition duration-300">Registration</a>
+                        <a href="#typing" onclick="showSection('typing')" class="text-white hover:bg-white hover:bg-opacity-20 px-3 py-2 rounded-md text-sm font-medium transition duration-300">Typing</a>
+                        <a href="#contact" onclick="showSection('contact')" class="text-white hover:bg-white hover:bg-opacity-20 px-3 py-2 rounded-md text-sm font-medium transition duration-300">Contact</a>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="text-white hover:bg-white hover:bg-opacity-20 p-2 rounded-md transition duration-300">
+                        <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                        <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white bg-opacity-95 backdrop-blur-sm border-t border-white border-opacity-20">
+            <div class="px-4 py-3 space-y-1">
+                <div class="grid grid-cols-2 gap-2">
+                    <a href="#home" onclick="showSection('home'); toggleMobileMenu();" class="text-purple-700 hover:bg-purple-100 px-3 py-2 rounded-md text-sm font-medium transition duration-300 text-center">🏠 Home</a>
+                    <a href="#courses" onclick="showSection('courses'); toggleMobileMenu();" class="text-purple-700 hover:bg-purple-100 px-3 py-2 rounded-md text-sm font-medium transition duration-300 text-center">📚 Courses</a>
+                    <a href="#paid-courses" onclick="showSection('paid-courses'); toggleMobileMenu();" class="text-purple-700 hover:bg-purple-100 px-3 py-2 rounded-md text-sm font-medium transition duration-300 text-center">💎 Premium</a>
+                    <a href="#registration" onclick="showSection('registration'); toggleMobileMenu();" class="text-purple-700 hover:bg-purple-100 px-3 py-2 rounded-md text-sm font-medium transition duration-300 text-center">📝 Register</a>
+                    <a href="#typing" onclick="showSection('typing'); toggleMobileMenu();" class="text-purple-700 hover:bg-purple-100 px-3 py-2 rounded-md text-sm font-medium transition duration-300 text-center">⌨️ Typing</a>
+                    <a href="#contact" onclick="showSection('contact'); toggleMobileMenu();" class="text-purple-700 hover:bg-purple-100 px-3 py-2 rounded-md text-sm font-medium transition duration-300 text-center">📞 Contact</a>
+                </div>
+            </div>
+        </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <div id="home" class="section">
+        <div class="gradient-bg min-h-screen">
+            <!-- Hero Section -->
+            <div class="flex items-center justify-center min-h-screen">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <!-- Computer SVG Image -->
+                    <div class="mb-8 flex justify-center">
+                        <svg width="200" height="150" viewBox="0 0 200 150" class="drop-shadow-2xl">
+                            <!-- Monitor -->
+                            <rect x="20" y="20" width="160" height="100" rx="8" fill="#2D3748" stroke="#4A5568" stroke-width="2"/>
+                            <rect x="30" y="30" width="140" height="80" rx="4" fill="#1A202C"/>
+                            
+                            <!-- Screen Content -->
+                            <rect x="40" y="40" width="120" height="60" rx="2" fill="#4299E1"/>
+                            <text x="100" y="65" text-anchor="middle" fill="white" font-family="Arial" font-size="10" font-weight="bold">TechLearn</text>
+                            <text x="100" y="80" text-anchor="middle" fill="white" font-family="Arial" font-size="8">Education Academy</text>
+                            <text x="100" y="95" text-anchor="middle" fill="#FED7D7" font-family="Arial" font-size="6">By Pritam Singh</text>
+                            
+                            <!-- Monitor Stand -->
+                            <rect x="90" y="120" width="20" height="15" fill="#4A5568"/>
+                            <rect x="70" y="135" width="60" height="8" rx="4" fill="#2D3748"/>
+                            
+                            <!-- Keyboard -->
+                            <rect x="40" y="145" width="120" height="4" rx="2" fill="#4A5568"/>
+                        </svg>
+                    </div>
+                    
+                    <h1 class="text-5xl md:text-7xl font-bold text-white mb-2 fade-in" style="text-shadow: 3px 3px 6px rgba(0,0,0,0.5); background: linear-gradient(45deg, #FFD700, #FFA500, #FF6347); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">TECHLEARN Education Academy</h1>
+                    <p class="text-2xl md:text-3xl text-white mb-4 fade-in font-semibold">By Pritam Singh</p>
+                    <p class="text-xl md:text-2xl text-white mb-8 fade-in">Master Computer Skills - Learn from Basic to Advanced Computer Courses</p>
+                    
+                    <!-- Marquee Section -->
+                    <div class="bg-white bg-opacity-30 rounded-full py-4 mb-8 overflow-hidden">
+                        <marquee behavior="scroll" direction="left" scrollamount="3" class="text-2xl font-bold text-white">
+                            🎓 Welcome to TechLearn Computer Education Center 🎓 Quality Education • Expert Training • Career Growth • Modern Technology 🎓 Playlists for all Courses will be Available Soon
+                        </marquee>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <button onclick="showSection('courses')" class="bg-white text-purple-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition duration-300 pulse-effect">Explore Courses</button>
+                        <button onclick="showSection('paid-courses')" class="bg-yellow-500 text-purple-800 px-8 py-4 rounded-full text-lg font-semibold hover:bg-yellow-400 transition duration-300 pulse-effect">Premium Courses</button>
+                        <button onclick="showSection('registration')" class="bg-green-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-green-700 transition duration-300 pulse-effect">Register Now</button>
+                        <a href="Exam.html"><button onclick="showSection('')" class="bg-orange-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-pink-700 transition duration-300 pulse-effect">Exam Now & Notes</button></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Computer Education Information Section -->
+            <div class="bg-white bg-opacity-10 backdrop-blur-sm py-16">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                        <h2 class="text-4xl font-bold text-white mb-4">Computer Education Excellence</h2>
+                        <p class="text-xl text-white opacity-90">Empowering Students with Digital Skills for Tomorrow's World</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                        <!-- Why Computer Education -->
+                        <div class="bg-white bg-opacity-20 rounded-lg p-6 backdrop-blur-sm">
+                            <div class="text-4xl mb-4 text-center">💡</div>
+                            <h3 class="text-xl font-semibold text-white mb-3">Why Computer Education?</h3>
+                            <ul class="text-white opacity-90 space-y-2 text-sm">
+                                <li>• Essential skill for modern careers</li>
+                                <li>• Improves productivity and efficiency</li>
+                                <li>• Opens doors to global opportunities</li>
+                                <li>• Enhances problem-solving abilities</li>
+                                <li>• Prepares for digital future</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Our Teaching Method -->
+                        <div class="bg-white bg-opacity-20 rounded-lg p-6 backdrop-blur-sm">
+                            <div class="text-4xl mb-4 text-center">🎯</div>
+                            <h3 class="text-xl font-semibold text-white mb-3">Our Teaching Method</h3>
+                            <ul class="text-white opacity-90 space-y-2 text-sm">
+                                <li>• Hands-on practical training</li>
+                                <li>• Individual attention to students</li>
+                                <li>• Real-world project experience</li>
+                                <li>• Industry-relevant curriculum</li>
+                                <li>• Regular assessments & feedback</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Career Benefits -->
+                        <div class="bg-white bg-opacity-20 rounded-lg p-6 backdrop-blur-sm">
+                            <div class="text-4xl mb-4 text-center">🚀</div>
+                            <h3 class="text-xl font-semibold text-white mb-3">Career Benefits</h3>
+                            <ul class="text-white opacity-90 space-y-2 text-sm">
+                                <li>• Higher salary prospects</li>
+                                <li>• Job security in IT sector</li>
+                                <li>• Freelancing opportunities</li>
+                                <li>• Government job eligibility</li>
+                                <li>• Entrepreneurship possibilities</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Course Categories -->
+                    <div class="text-center mb-12">
+                        <h3 class="text-3xl font-bold text-white mb-8">Our Course Categories</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            
+                            <!-- Basic Courses -->
+                            <div class="bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg p-6 text-white">
+                                <div class="text-3xl mb-3">📚</div>
+                                <h4 class="font-semibold mb-2">Basic Courses</h4>
+                                <p class="text-sm opacity-90 mb-3">Perfect for beginners</p>
+                                <ul class="text-xs space-y-1">
+                                    <li>• Basic Computer</li>
+                                    <li>• MS Office</li>
+                                    <li>• Internet & Email</li>
+                                    <li>• Computer Concepts</li>
+                                </ul>
+                                <div class="mt-3 text-lg font-bold">₹500 - ₹1,500</div>
+                            </div>
+                            
+                            <!-- Professional Courses -->
+                            <div class="bg-gradient-to-br from-green-500 to-green-700 rounded-lg p-6 text-white">
+                                <div class="text-3xl mb-3">💼</div>
+                                <h4 class="font-semibold mb-2">Professional</h4>
+                                <p class="text-sm opacity-90 mb-3">Career-focused training</p>
+                                <ul class="text-xs space-y-1">
+                                    <li>• Tally Accounting</li>
+                                    <li>• DCA Diploma</li>
+                                    <li>• Photoshop Design</li>
+                                    <li>• Digital Marketing</li>
+                                </ul>
+                                <div class="mt-3 text-lg font-bold">₹1,500 - ₹18,000</div>
+                            </div>
+                            
+                            <!-- Programming Courses -->
+                            <div class="bg-gradient-to-br from-purple-500 to-purple-700 rounded-lg p-6 text-white">
+                                <div class="text-3xl mb-3">⚡</div>
+                                <h4 class="font-semibold mb-2">Programming</h4>
+                                <p class="text-sm opacity-90 mb-3">Technical development</p>
+                                <ul class="text-xs space-y-1">
+                                    <li>• HTML & CSS</li>
+                                    <li>• Web Designing</li>
+                                    <li>• Full Stack Development</li>
+                                    <li>• Data Science</li>
+                                </ul>
+                                <div class="mt-3 text-lg font-bold">₹3,200 - ₹30,000</div>
+                            </div>
+                            
+                            <!-- Advanced Courses -->
+                            <div class="bg-gradient-to-br from-red-500 to-red-700 rounded-lg p-6 text-white">
+                                <div class="text-3xl mb-3">🔥</div>
+                                <h4 class="font-semibold mb-2">Advanced</h4>
+                                <p class="text-sm opacity-90 mb-3">Expert-level skills</p>
+                                <ul class="text-xs space-y-1">
+                                    <li>• Cybersecurity</li>
+                                    <li>• Cloud Computing</li>
+                                    <li>• AI & Machine Learning</li>
+                                    <li>• Blockchain Technology</li>
+                                </ul>
+                                <div class="mt-3 text-lg font-bold">₹25,000 - ₹35,000</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Key Features -->
+                    <div class="bg-white bg-opacity-20 rounded-lg p-8 backdrop-blur-sm">
+                        <h3 class="text-2xl font-bold text-white text-center mb-6">Why Choose Pritam Singh Computer Education?</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <div class="text-center">
+                                <div class="text-3xl mb-2">👨‍🏫</div>
+                                <h4 class="font-semibold text-white mb-1">Expert Faculty</h4>
+                                <p class="text-white opacity-80 text-sm">Experienced instructors with industry knowledge</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl mb-2">🏆</div>
+                                <h4 class="font-semibold text-white mb-1">Certified Courses</h4>
+                                <p class="text-white opacity-80 text-sm">Industry-recognized certifications</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl mb-2">💻</div>
+                                <h4 class="font-semibold text-white mb-1">Modern Lab</h4>
+                                <p class="text-white opacity-80 text-sm">Latest computers and software</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl mb-2">🎯</div>
+                                <h4 class="font-semibold text-white mb-1">Job Assistance</h4>
+                                <p class="text-white opacity-80 text-sm">Career guidance and placement support</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Section at Bottom of Home -->
+            <div class="bg-gray-800 py-8">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-white mb-2">Get in Touch</h3>
+                        <p class="text-lg text-white opacity-90">Ready to start your learning journey?</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <div class="text-center">
+                            <div class="text-4xl mb-4">📞</div>
+                            <h4 class="text-xl font-semibold text-white mb-2">Call Us</h4>
+                            <p class="text-white opacity-90">+91 91400 78867</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl mb-4">💬</div>
+                            <h4 class="text-xl font-semibold text-white mb-2">WhatsApp</h4>
+                            <a href="https://wa.me/919140078867" target="_blank" class="text-green-300 hover:text-green-100 font-semibold">+91 91400 78867</a>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl mb-4">✉️</div>
+                            <h4 class="text-xl font-semibold text-white mb-2">Email</h4>
+                            <a href="mailto:PRITAM.RATH.75@gmail.com" class="text-blue-300 hover:text-blue-100 font-semibold">Contact Us</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Media Icons -->
+                    <div class="text-center">
+                        <h4 class="text-xl font-semibold text-white mb-6">Follow Us</h4>
+                        <div class="flex justify-center space-x-4">
+                            <a href="https://www.youtube.com/@TechCareDigital" target="_blank" class="bg-red-600 text-white p-3 rounded-full hover:bg-red-700 transition duration-300 transform hover:scale-110 glow-effect">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.instagram.com/mr.pritam.s/" target="_blank" class="bg-pink-600 text-white p-3 rounded-full hover:bg-pink-700 transition duration-300 transform hover:scale-110 glow-effect">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.facebook.com/people/Pritam-Singh/pfbid0JNeFFxkg1K2Ra2H2GJVy5oPy5qBiBg4JG7jpw9BnDn81uV4xoMFZFKsSTM9jQ8Lhl/" target="_blank" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition duration-300 transform hover:scale-110 glow-effect">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                </svg>
+                            </a>
+                            <a href="https://x.com/Mrpritams0?t=GLy-hjkifYbh9_OY51MEXg&s=08" target="_blank" class="bg-black text-white p-3 rounded-full hover:bg-gray-800 transition duration-300 transform hover:scale-110 glow-effect">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                                </svg>
+                            </a>
+                            <a href="https://t.me/Pritameducation" target="_blank" class="bg-blue-500 text-white p-3 rounded-full hover:bg-blue-600 transition duration-300 transform hover:scale-110 glow-effect">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Courses Section -->
+     <marquee><B>Videos of all courses will be available soon</B></marquee>
+    <div id="courses" class="section hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Our Computer Courses</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Basic Computer Course -->
+                <div class="bg-gradient-to-br from-blue-500 to-blue-700 text-white rounded-lg shadow-lg p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <div class="text-4xl mb-4">💻</div>
+                        <h3 class="text-xl font-semibold text-white">Basic Computer Course</h3>
+                    </div>
+                    <ul class="text-white opacity-90 mb-4 space-y-2">
+                        <li>• Computer Fundamentals</li>
+                        <li>• Internet & Email</li>
+                        <li>• MS Office (Word, Excel, PowerPoint)</li>
+                        <li>• No Certificate</li>
+                    </ul>
+                    <div class="text-center">
+                        <p class="text-2xl font-bold text-yellow-300 mb-4">₹00</p>
+                        <div class="flex justify-center space-x-3">
+                            <button onclick="showSection('registration')" class="bg-white text-blue-600 px-4 py-2 rounded-full hover:bg-gray-100 transition duration-300 text-sm font-semibold">Enroll Now</button>
+                            <A href="https://youtube.com/playlist?list=PL3jqSBtCIPDQMPnqIMPsHmr3GGOfDLF2p&si=jkuzOfTT6zArrS2C"><button onclick="watchCourse('Basic Computer Course')" class="bg-yellow-400 text-blue-800 px-4 py-2 rounded-full hover:bg-yellow-300 transition duration-300 text-sm font-semibold">📺 Watch</button></A>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MS Office Full Course -->
+                <div class="bg-gradient-to-br from-green-500 to-green-700 text-white rounded-lg shadow-lg p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <div class="text-4xl mb-4">📄</div>
+                        <h3 class="text-xl font-semibold text-white">MS Office Full Course</h3>
+                    </div>
+                    <ul class="text-white opacity-90 mb-4 space-y-2">
+                        <li>• Advanced Word Processing</li>
+                        <li>• Excel Formulas & Functions</li>
+                        <li>• PowerPoint Presentations</li>
+                        <li>• No Certificate</li>
+                    </ul>
+                    <div class="text-center">
+                        <p class="text-2xl font-bold text-yellow-300 mb-4">₹00</p>
+                        <div class="flex justify-center space-x-3">
+                            <button onclick="showSection('registration')" class="bg-white text-green-600 px-4 py-2 rounded-full hover:bg-gray-100 transition duration-300 text-sm font-semibold">Enroll Now</button>
+                            <button onclick="watchCourse('MS Office Full Course')" class="bg-yellow-400 text-green-800 px-4 py-2 rounded-full hover:bg-yellow-300 transition duration-300 text-sm font-semibold">📺 Watch</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Advanced Excel Course -->
+                <div class="bg-gradient-to-br from-purple-500 to-purple-700 text-white rounded-lg shadow-lg p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <div class="text-4xl mb-4">📊</div>
+                        <h3 class="text-xl font-semibold text-white">Advanced Excel Course</h3>
+                    </div>
+                    <ul class="text-white opacity-90 mb-4 space-y-2">
+                        <li>• Advanced Formulas & Functions</li>
+                        <li>• Pivot Tables & Charts</li>
+                        <li>• Data Analysis & Visualization</li>
+                        <li>• Macros & VBA Programming</li>
+                    </ul>
+                    <div class="text-center">
+                        <p class="text-2xl font-bold text-yellow-300 mb-4">₹1,200</p>
+                        <div class="flex justify-center space-x-3">
+                            <button onclick="showSection('registration')" class="bg-white text-purple-600 px-4 py-2 rounded-full hover:bg-gray-100 transition duration-300 text-sm font-semibold">Enroll Now</button>
+                            <button onclick="watchCourse('Advanced Excel Course')" class="bg-yellow-400 text-purple-800 px-4 py-2 rounded-full hover:bg-yellow-300 transition duration-300 text-sm font-semibold">📺 Watch</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tally Course -->
+                <div class="bg-gradient-to-br from-orange-500 to-red-600 text-white rounded-lg shadow-lg p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <div class="text-4xl mb-4">💰</div>
+                        <h3 class="text-xl font-semibold text-white">Tally Course</h3>
+                    </div>
+                    <ul class="text-white opacity-90 mb-4 space-y-2">
+                        <li>• Tally Prime Basics</li>
+                        <li>• Accounting Fundamentals</li>
+                        <li>• GST Implementation</li>
+                        <li>• Financial Reports</li>
+                    </ul>
+                    <div class="text-center">
+                        <p class="text-2xl font-bold text-yellow-300 mb-4">₹3,500</p>
+                        <div class="flex justify-center space-x-3">
+                            <button onclick="showSection('registration')" class="bg-white text-orange-600 px-4 py-2 rounded-full hover:bg-gray-100 transition duration-300 text-sm font-semibold">Enroll Now</button>
+                            <a href="https://www.youtube.com/playlist?list=PL3jqSBtCIPDS-UuZQqe0J_idTchwh1zs3"><button onclick="watchCourse('Tally Course')" class="bg-yellow-400 text-orange-800 px-4 py-2 rounded-full hover:bg-yellow-300 transition duration-300 text-sm font-semibold">📺 Watch</button></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ADCA Course -->
+                <div class="bg-gradient-to-br from-indigo-500 to-blue-600 text-white rounded-lg shadow-lg p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <div class="text-4xl mb-4">🎓</div>
+                        <h3 class="text-xl font-semibold text-white">ADCA Course</h3>
+                        <p class="text-sm text-blue-200">Advanced Diploma in Computer Application</p>
+                    </div>
+                    <ul class="text-white opacity-90 mb-4 space-y-2">
+                        <li>• Advanced Programming</li>
+                        <li>• Database Management Systems</li>
+                        <li>• Web Development</li>
+                        <li>• Software Engineering</li>
+                    </ul>
+                    <div class="text-center">
+                        <p class="text-2xl font-bold text-yellow-300 mb-4">₹18,500</p>
+                        <div class="flex justify-center space-x-3">
+                            <button onclick="showSection('registration')" class="bg-white text-indigo-600 px-4 py-2 rounded-full hover:bg-gray-100 transition duration-300 text-sm font-semibold">Enroll Now</button>
+                            <button onclick="watchCourse('ADCA Course')" class="bg-yellow-400 text-indigo-800 px-4 py-2 rounded-full hover:bg-yellow-300 transition duration-300 text-sm font-semibold">📺 Watch</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DFA Course -->
+                <div class="bg-gradient-to-br from-teal-500 to-cyan-600 text-white rounded-lg shadow-lg p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <div class="text-4xl mb-4">💼</div>
+                        <h3 class="text-xl font-semibold text-white">DFA Course</h3>
+                        <p class="text-sm text-teal-200">Diploma in Financial Accounting</p>
+                    </div>
+                    <ul class="text-white opacity-90 mb-4 space-y-2">
+                        <li>• Financial Accounting Principles</li>
+                        <li>• Tally ERP & GST</li>
+                        <li>• Taxation & Compliance</li>
+                        <li>• Audit & Financial Analysis</li>
+                    </ul>
+                    <div class="text-center">
+                        <p class="text-2xl font-bold text-yellow-300 mb-4">₹9,800</p>
+                        <div class="flex justify-center space-x-3">
+                            <button onclick="showSection('registration')" class="bg-white text-teal-600 px-4 py-2 rounded-full hover:bg-gray-100 transition duration-300 text-sm font-semibold">Enroll Now</button>
+                            <button onclick="watchCourse('DFA Course')" class="bg-yellow-400 text-teal-800 px-4 py-2 rounded-full hover:bg-yellow-300 transition duration-300 text-sm font-semibold">📺 Watch</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DEO Course -->
+                <div class="bg-white rounded-lg shadow-lg p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <div class="text-4xl mb-4">⌨️</div>
+                        <h3 class="text-xl font-semibold text-gray-800">DEO Course</h3>
+                        <p class="text-sm text-gray-500">Data Entry Operator</p>
+                    </div>
+                    <ul class="text-gray-600 mb-4 space-y-2">
+                        <li>• High-Speed Typing Skills</li>
+                        <li>• Data Entry Techniques</li>
+                        <li>• MS Office Proficiency</li>
+                        <li>• Database Management</li>
+                    </ul>
+                    <div class="text-center">
+                        <p class="text-2xl font-bold text-purple-600 mb-4">₹5,800</p>
+                        <div class="flex justify-center space-x-3">
+                            <button onclick="showSection('registration')" class="bg-purple-600 text-white px-4 py-2 rounded-full hover:bg-purple-700 transition duration-300 text-sm">Enroll Now</button>
+                            <button onclick="watchCourse('DEO Course')" class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition duration-300 text-sm">📺 Watch</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Computer Concepts -->
+                <div class="bg-white rounded-lg shadow-lg p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <div class="text-4xl mb-4">🧠</div>
+                        <h3 class="text-xl font-semibold text-gray-800">Course On Computer Concepts</h3>
+                    </div>
+                    <ul class="text-gray-600 mb-4 space-y-2">
+                        <li>• Hardware & Software</li>
+                        <li>• Data Processing</li>
+                        <li>• Computer Networks</li>
+                        <li>• Security Concepts</li>
+                    </ul>
+                    <div class="text-center">
+                        <p class="text-2xl font-bold text-purple-600 mb-4">₹2,800</p>
+                        <div class="flex justify-center space-x-3">
+                            <button onclick="showSection('registration')" class="bg-purple-600 text-white px-4 py-2 rounded-full hover:bg-purple-700 transition duration-300 text-sm">Enroll Now</button>
+                            <A href=""><button onclick="watchCourse('Computer Concepts')" class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition duration-300 text-sm">📺 Watch</button></A>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photoshop Course -->
+                <div class="bg-white rounded-lg shadow-lg p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <div class="text-4xl mb-4">🎨</div>
+                        <h3 class="text-xl font-semibold text-gray-800">Photoshop Course</h3>
+                    </div>
+                    <ul class="text-gray-600 mb-4 space-y-2">
+                        <li>• Photo Editing Basics</li>
+                        <li>• Layer Management</li>
+                        <li>• Digital Art Creation</li>
+                        <li>• Professional Retouching</li>
+                    </ul>
+                    <div class="text-center">
+                        <p class="text-2xl font-bold text-purple-600 mb-4">₹5,200</p>
+                        <div class="flex justify-center space-x-3">
+                            <button onclick="showSection('registration')" class="bg-purple-600 text-white px-4 py-2 rounded-full hover:bg-purple-700 transition duration-300 text-sm">Enroll Now</button>
+                            <button onclick="watchCourse('Photoshop Course')" class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition duration-300 text-sm">📺 Watch</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DCA Course -->
+                <div class="bg-white rounded-lg shadow-lg p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <div class="text-4xl mb-4">🎯</div>
+                        <h3 class="text-xl font-semibold text-gray-800">DCA Course</h3>
+                        <p class="text-sm text-gray-500">Diploma in Computer Applications</p>
+                    </div>
+                    <ul class="text-gray-600 mb-4 space-y-2">
+                        <li>• Programming Fundamentals</li>
+                        <li>• Database Management</li>
+                        <li>• System Analysis & Design</li>
+                        <li>• Project Development</li>
+                    </ul>
+                    <div class="text-center">
+                        <p class="text-2xl font-bold text-purple-600 mb-4">₹8,500</p>
+                        <div class="flex justify-center space-x-3">
+                            <button onclick="showSection('registration')" class="bg-purple-600 text-white px-4 py-2 rounded-full hover:bg-purple-700 transition duration-300 text-sm">Enroll Now</button>
+                            <button onclick="watchCourse('DCA Course')" class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition duration-300 text-sm">📺 Watch</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HTML Course -->
+                <div class="bg-white rounded-lg shadow-lg p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <div class="text-4xl mb-4">🌐</div>
+                        <h3 class="text-xl font-semibold text-gray-800">HTML Course</h3>
+                    </div>
+                    <ul class="text-gray-600 mb-4 space-y-2">
+                        <li>• HTML5 Fundamentals</li>
+                        <li>• Semantic Elements</li>
+                        <li>• Forms & Tables</li>
+                        <li>• Responsive Design Basics</li>
+                    </ul>
+                    <div class="text-center">
+                        <p class="text-2xl font-bold text-purple-600 mb-4">₹3,200</p>
+                        <div class="flex justify-center space-x-3">
+                            <button onclick="showSection('registration')" class="bg-purple-600 text-white px-4 py-2 rounded-full hover:bg-purple-700 transition duration-300 text-sm">Enroll Now</button>
+                            <button onclick="watchCourse('HTML Course')" class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition duration-300 text-sm">📺 Watch</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CSS Course -->
+                <div class="bg-white rounded-lg shadow-lg p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <div class="text-4xl mb-4">🎨</div>
+                        <h3 class="text-xl font-semibold text-gray-800">CSS Course</h3>
+                    </div>
+                    <ul class="text-gray-600 mb-4 space-y-2">
+                        <li>• CSS3 Styling</li>
+                        <li>• Flexbox & Grid</li>
+                        <li>• Animations & Transitions</li>
+                        <li>• Responsive Design</li>
+                    </ul>
+                    <div class="text-center">
+                        <p class="text-2xl font-bold text-purple-600 mb-4">₹4,200</p>
+                        <div class="flex justify-center space-x-3">
+                            <button onclick="showSection('registration')" class="bg-purple-600 text-white px-4 py-2 rounded-full hover:bg-purple-700 transition duration-300 text-sm">Enroll Now</button>
+                            <button onclick="watchCourse('CSS Course')" class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition duration-300 text-sm">📺 Watch</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Designing Course -->
+                <div class="bg-white rounded-lg shadow-lg p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <div class="text-4xl mb-4">🖥️</div>
+                        <h3 class="text-xl font-semibold text-gray-800">Web Designing Course</h3>
+                    </div>
+                    <ul class="text-gray-600 mb-4 space-y-2">
+                        <li>• Complete Web Design</li>
+                        <li>• UI/UX Principles</li>
+                        <li>• JavaScript Basics</li>
+                        <li>• Portfolio Development</li>
+                    </ul>
+                    <div class="text-center">
+                        <p class="text-2xl font-bold text-purple-600 mb-4">₹7,800</p>
+                        <div class="flex justify-center space-x-3">
+                            <button onclick="showSection('registration')" class="bg-purple-600 text-white px-4 py-2 rounded-full hover:bg-purple-700 transition duration-300 text-sm">Enroll Now</button>
+                            <button onclick="watchCourse('Web Designing Course')" class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition duration-300 text-sm">📺 Watch</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Section at Bottom of Home -->
+            <div class="bg-gray-800 py-8">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-white mb-2">Get in Touch</h3>
+                        <p class="text-lg text-white opacity-90">Ready to start your learning journey?</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <div class="text-center">
+                            <div class="text-4xl mb-4">📞</div>
+                            <h4 class="text-xl font-semibold text-white mb-2">Call Us</h4>
+                            <p class="text-white opacity-90">+91 91400 78867</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl mb-4">💬</div>
+                            <h4 class="text-xl font-semibold text-white mb-2">WhatsApp</h4>
+                            <a href="https://wa.me/919140078867" target="_blank" class="text-green-300 hover:text-green-100 font-semibold">+91 91400 78867</a>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl mb-4">✉️</div>
+                            <h4 class="text-xl font-semibold text-white mb-2">Email</h4>
+                            <a href="mailto:PRITAM.RATH.75@gmail.com" class="text-blue-300 hover:text-blue-100 font-semibold">Contact Us</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Media Icons -->
+                    <div class="text-center">
+                        <h4 class="text-xl font-semibold text-white mb-6">Follow Us</h4>
+                        <div class="flex justify-center space-x-4">
+                            <a href="https://www.youtube.com/@TechCareDigital" target="_blank" class="bg-red-600 text-white p-3 rounded-full hover:bg-red-700 transition duration-300 transform hover:scale-110 glow-effect">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.instagram.com/mr.pritam.s/" target="_blank" class="bg-pink-600 text-white p-3 rounded-full hover:bg-pink-700 transition duration-300 transform hover:scale-110 glow-effect">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.facebook.com/people/Pritam-Singh/pfbid0JNeFFxkg1K2Ra2H2GJVy5oPy5qBiBg4JG7jpw9BnDn81uV4xoMFZFKsSTM9jQ8Lhl/" target="_blank" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition duration-300 transform hover:scale-110 glow-effect">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                </svg>
+                            </a>
+                            <a href="https://x.com/Mrpritams0?t=GLy-hjkifYbh9_OY51MEXg&s=08" target="_blank" class="bg-black text-white p-3 rounded-full hover:bg-gray-800 transition duration-300 transform hover:scale-110 glow-effect">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                                </svg>
+                            </a>
+                            <a href="https://t.me/techlearnacademy" target="_blank" class="bg-blue-500 text-white p-3 rounded-full hover:bg-blue-600 transition duration-300 transform hover:scale-110 glow-effect">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Paid Courses Section -->
+    <div id="paid-courses" class="section hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Top Premium Courses</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Full Stack Development -->
+                <div class="bg-gradient-to-br from-purple-600 to-blue-600 rounded-lg shadow-lg p-6 text-white card-hover">
+                    <div class="text-center mb-4">
+                        <div class="text-4xl mb-4">⚡</div>
+                        <h3 class="text-xl font-semibold">Machine Learning Course</h3>
+                    </div>
+                    <ul class="mb-4 space-y-2">
+                        <li>• Data Preprocessing</li>
+                        <li>• Supervised Learning</li>
+                        <li>• Rssociation Rule</li>
+                        <li>• Dimension Reduction</li>
+                    </ul>
+                    <div class="text-center">
+                        <p class="text-2xl font-bold mb-4">₹25,000</p>
+                        <a href="https://www.learnvern.com/course/machine-learning-course-in-hindi" onclick="showSection('registration')" class="inline-block bg-white text-purple-600 px-6 py-2 rounded-full hover:bg-gray-100 transition duration-300 transform hover:scale-105">Join Premium</a>
+                    </div>
+                </div>
+
+                <!-- Data Science -->
+                <div class="bg-gradient-to-br from-green-600 to-teal-600 rounded-lg shadow-lg p-6 text-white card-hover">
+                    <div class="text-center mb-4">
+                        <div class="text-4xl mb-4">📈</div>
+                        <h3 class="text-xl font-semibold">Data Science</h3>
+                    </div>
+                    <ul class="mb-4 space-y-2">
+                        <li>• Python Programming</li>
+                        <li>• Machine Learning</li>
+                        <li>• Data Visualization</li>
+                        <li>• Real-world Projects</li>
+                    </ul>
+                    <div class="text-center">
+                        <p class="text-2xl font-bold mb-4">₹30,000</p>
+                        <a href="https://www.learnvern.com/course/data-science-tutorial" onclick="showSection('registration')" class="inline-block bg-white text-green-600 px-6 py-2 rounded-full hover:bg-gray-100 transition duration-300 transform hover:scale-105">Join Premium</a>
+                    </div>
+                </div>
+
+                <!-- Digital Marketing -->
+                <div class="bg-gradient-to-br from-pink-600 to-red-600 rounded-lg shadow-lg p-6 text-white card-hover">
+                    <div class="text-center mb-4">
+                        <div class="text-4xl mb-4">📱</div>
+                        <h3 class="text-xl font-semibold">Digital Marketing</h3>
+                    </div>
+                    <ul class="mb-4 space-y-2">
+                        <li>• SEO & SEM</li>
+                        <li>• Social Media Marketing</li>
+                        <li>• Google Ads</li>
+                        <li>• Analytics & Reporting</li>
+                    </ul>
+                    <div class="text-center">
+                        <p class="text-2xl font-bold mb-4">₹18,000</p>
+                        <a href="https://www.learnvern.com/course/digital-marketing-tutorial" onclick="showSection('registration')" class="inline-block bg-white text-pink-600 px-6 py-2 rounded-full hover:bg-gray-100 transition duration-300 transform hover:scale-105">Join Premium</a>
+                    </div>
+                </div>
+
+                <!-- Cybersecurity -->
+                <div class="bg-gradient-to-br from-gray-700 to-gray-900 rounded-lg shadow-lg p-6 text-white card-hover">
+                    <div class="text-center mb-4">
+                        <div class="text-4xl mb-4">🔒</div>
+                        <h3 class="text-xl font-semibold">Cybersecurity</h3>
+                    </div>
+                    <ul class="mb-4 space-y-2">
+                        <li>• Network Security</li>
+                        <li>• Ethical Hacking</li>
+                        <li>• Risk Assessment</li>
+                        <li>• Security Tools</li>
+                    </ul>
+                    <div class="text-center">
+                        <p class="text-2xl font-bold mb-4">₹35,000</p>
+                        <a href="https://www.learnvern.com/course/cyber-forensics-course" onclick="showSection('registration')" class="inline-block bg-white text-gray-800 px-6 py-2 rounded-full hover:bg-gray-100 transition duration-300 transform hover:scale-105">Join Premium</a>
+                    </div>
+                </div>
+                <!-- SQL For Data Analysis -->
+                <div class="bg-gradient-to-br from-purple-600 to-blue-600 rounded-lg shadow-lg p-6 text-white card-hover">
+                    <div class="text-center mb-4">
+                        <div class="text-4xl mb-4">⚡</div>
+                        <h3 class="text-xl font-semibold">SQL For Data Analysis</h3>
+                    </div>
+                    <ul class="mb-4 space-y-2">
+                        <li>• Data Mining</li>
+                        <li>• Data Scientists</li>
+                        <li>• Data Researcher</li>
+                        <li>• Data Analysis</li>
+                    </ul>
+                    <div class="text-center">
+                        <p class="text-2xl font-bold mb-4">₹15,000</p>
+                        <a href="https://www.learnvern.com/course/sql-for-data-analysis-tutorial" onclick="showSection('registration')" class="inline-block bg-white text-purple-600 px-6 py-2 rounded-full hover:bg-gray-100 transition duration-300 transform hover:scale-105">Join Premium</a>
+                        <a href="https://www.youtube.com/playlist?list=PL3jqSBtCIPDQwLB0zMNGTe70b0aqGLpw5" onclick="showSection('')" class="inline-block bg-blue-50 text-yellow-600 px-6 py-2 rounded-full hover:bg-gray-100 transition duration-300 transform hover:scale-105">Watch Now</a>
+                    </div>
+                </div>
+                <!-- Cloud Computing -->
+                <div class="bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg shadow-lg p-6 text-white card-hover">
+                    <div class="text-center mb-4">
+                        <div class="text-4xl mb-4">☁️</div>
+                        <h3 class="text-xl font-semibold">Cloud Computing</h3>
+                    </div>
+                    <ul class="mb-4 space-y-2">
+                        <li>• AWS & Azure</li>
+                        <li>• Cloud Architecture</li>
+                        <li>• DevOps Integration</li>
+                        <li>• Certification Prep</li>
+                    </ul>
+                    <div class="text-center">
+                        <p class="text-2xl font-bold mb-4">₹28,000</p>
+                        <a href="https://www.learnvern.com/course/cloud-computing-course" onclick="showSection('registration')" class="inline-block bg-white text-blue-600 px-6 py-2 rounded-full hover:bg-gray-100 transition duration-300 transform hover:scale-105">Join Premium</a>
+                    </div>
+                </div>
+            </div>
+              
+            
+            <!-- Contact Section at Bottom of Home -->
+            <div class="bg-gray-800 py-8">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-white mb-2">Get in Touch</h3>
+                        <p class="text-lg text-white opacity-90">Ready to start your learning journey?</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <div class="text-center">
+                            <div class="text-4xl mb-4">📞</div>
+                            <h4 class="text-xl font-semibold text-white mb-2">Call Us</h4>
+                            <p class="text-white opacity-90">+91 91400 78867</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl mb-4">💬</div>
+                            <h4 class="text-xl font-semibold text-white mb-2">WhatsApp</h4>
+                            <a href="https://wa.me/919140078867" target="_blank" class="text-green-300 hover:text-green-100 font-semibold">+91 91400 78867</a>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl mb-4">✉️</div>
+                            <h4 class="text-xl font-semibold text-white mb-2">Email</h4>
+                            <a href="mailto:PRITAM.RATH.75@gmail.com" class="text-blue-300 hover:text-blue-100 font-semibold">Contact Us</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Media Icons -->
+                    <div class="text-center">
+                        <h4 class="text-xl font-semibold text-white mb-6">Follow Us</h4>
+                        <div class="flex justify-center space-x-4">
+                            <a href="https://www.youtube.com/@TechCareDigital" target="_blank" class="bg-red-600 text-white p-3 rounded-full hover:bg-red-700 transition duration-300 transform hover:scale-110 glow-effect">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.instagram.com/mr.pritam.s/" target="_blank" class="bg-pink-600 text-white p-3 rounded-full hover:bg-pink-700 transition duration-300 transform hover:scale-110 glow-effect">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.facebook.com/people/Pritam-Singh/pfbid0JNeFFxkg1K2Ra2H2GJVy5oPy5qBiBg4JG7jpw9BnDn81uV4xoMFZFKsSTM9jQ8Lhl/" target="_blank" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition duration-300 transform hover:scale-110 glow-effect">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                </svg>
+                            </a>
+                            <a href="https://x.com/Mrpritams0?t=GLy-hjkifYbh9_OY51MEXg&s=08" target="_blank" class="bg-black text-white p-3 rounded-full hover:bg-gray-800 transition duration-300 transform hover:scale-110 glow-effect">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                                </svg>
+                            </a>
+                            <a href="https://t.me/techlearnacademy" target="_blank" class="bg-blue-500 text-white p-3 rounded-full hover:bg-blue-600 transition duration-300 transform hover:scale-110 glow-effect">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== REGISTRATION FORM SECTION STARTS HERE ========== -->
+    <div id="registration" class="section hidden">
+        <div class="min-h-screen py-16" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-center text-white mb-12 text-shadow">Student Registration Form</h2>
+                
+                <div class="registration-form p-8 md:p-12">
+                    <div class="text-center mb-8">
+                        <div class="text-6xl mb-4">🎓</div>
+                        <h3 class="text-2xl font-bold text-white">Join TechLearn Academy</h3>
+                        <p class="text-white opacity-90 mt-2">Fill out the form below to register for our courses</p>
+                    </div>
+                    
+                    <form id="registrationForm" class="space-y-6">
+                        <!-- Personal Information Row -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="studentName" class="form-label block text-sm font-medium mb-2">Student Name *</label>
+                                <input type="text" id="studentName" name="studentName" required 
+                                       class="form-input w-full px-4 py-3 rounded-xl focus:outline-none focus:ring-0" 
+                                       placeholder="Enter your full name">
+                            </div>
+                            <div>
+                                <label for="age" class="form-label block text-sm font-medium mb-2">Age *</label>
+                                <input type="number" id="age" name="age" required min="10" max="100"
+                                       class="form-input w-full px-4 py-3 rounded-xl focus:outline-none focus:ring-0" 
+                                       placeholder="Enter your age">
+                            </div>
+                        </div>
+
+                        <!-- Parents Information Row -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="fatherName" class="form-label block text-sm font-medium mb-2">Father's Name *</label>
+                                <input type="text" id="fatherName" name="fatherName" required 
+                                       class="form-input w-full px-4 py-3 rounded-xl focus:outline-none focus:ring-0" 
+                                       placeholder="Enter father's name">
+                            </div>
+                            <div>
+                                <label for="motherName" class="form-label block text-sm font-medium mb-2">Mother's Name *</label>
+                                <input type="text" id="motherName" name="motherName" required 
+                                       class="form-input w-full px-4 py-3 rounded-xl focus:outline-none focus:ring-0" 
+                                       placeholder="Enter mother's name">
+                            </div>
+                        </div>
+
+                        <!-- Contact Information Row -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="email" class="form-label block text-sm font-medium mb-2">Email Address *</label>
+                                <input type="email" id="email" name="email" required 
+                                       class="form-input w-full px-4 py-3 rounded-xl focus:outline-none focus:ring-0" 
+                                       placeholder="Enter your email">
+                            </div>
+                            <div>
+                                <label for="phone" class="form-label block text-sm font-medium mb-2">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required 
+                                       class="form-input w-full px-4 py-3 rounded-xl focus:outline-none focus:ring-0" 
+                                       placeholder="Enter your phone number">
+                            </div>
+                        </div>
+
+                        <!-- Address -->
+                        <div>
+                            <label for="address" class="form-label block text-sm font-medium mb-2">Full Address *</label>
+                            <textarea id="address" name="address" required rows="3"
+                                      class="form-input w-full px-4 py-3 rounded-xl focus:outline-none focus:ring-0" 
+                                      placeholder="Enter your complete address with city, state, and pin code"></textarea>
+                        </div>
+
+                        <!-- Course Selection -->
+                        <div>
+                            <label for="course" class="form-label block text-sm font-medium mb-2">Select Course *</label>
+                            <select id="course" name="course" required 
+                                    class="form-input w-full px-4 py-3 rounded-xl focus:outline-none focus:ring-0">
+                                <option value="">Choose a course</option>
+                                <option value="Basic Computer Course - ₹00">Basic Computer Course - ₹00</option>
+                                <option value="MS Office Full Course - ₹00">MS Office Full Course - ₹00</option>
+                                <option value="Advanced Excel Course - ₹200">Advanced Excel Course - ₹200</option>
+                                <option value="Tally Course - ₹4,500">Tally Course - ₹4,500</option>
+                                <option value="ADCA Course - ₹12,500">ADCA Course (Advanced Diploma in Computer Application) - ₹12,500</option>
+                                <option value="DFA Course - ₹9,800">DFA Course (Diploma in Financial Accounting) - ₹9,800</option>
+                                <option value="DEO Course - ₹3,800">DEO Course (Data Entry Operator) - ₹3,800</option>
+                                <option value="Computer Concepts - ₹2,800">Computer Concepts - ₹2,800</option>
+                                <option value="Photoshop Course - ₹5,200">Photoshop Course - ₹5,200</option>
+                                <option value="DCA Course - ₹8,500">DCA Course (Diploma in Computer Applications) - ₹8,500</option>
+                                <option value="HTML Course - ₹3,200">HTML Course - ₹3,200</option>
+                                <option value="CSS Course - ₹4,200">CSS Course - ₹4,200</option>
+                                <option value="Web Designing Course - ₹7,800">Web Designing Course - ₹7,800</option>
+                                <option value="Machine Learning Course - ₹25,000">Machine Learning Course - ₹25,000</option>
+                                <option value="Data Science - ₹30,000">Data Science - ₹30,000</option>
+                                <option value="Digital Marketing - ₹18,000">Digital Marketing - ₹18,000</option>
+                                <option value="Cybersecurity - ₹35,000">Cybersecurity - ₹35,000</option>
+                                <option value="Cloud Computing - ₹28,000">Cloud Computing - ₹28,000</option>
+                                <option value="SQL For Data Analysis - ₹15,000">SQL For Data Analysis - ₹15,000</option>
+                            </select>
+                        </div>
+
+                        <!-- Message Box -->
+                        <div>
+                            <label for="message" class="form-label block text-sm font-medium mb-2">Additional Message</label>
+                            <textarea id="message" name="message" rows="4"
+                                      class="form-input w-full px-4 py-3 rounded-xl focus:outline-none focus:ring-0" 
+                                      placeholder="Any additional information or questions you'd like to share..."></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="text-center pt-6">
+                            <button type="submit" 
+                                    class="submit-btn text-white px-12 py-4 rounded-full text-lg font-semibold shadow-lg">
+                                🚀 Submit Registration
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Success Message -->
+                    <div id="successMessage" class="hidden mt-8 p-6 bg-green-100 border border-green-400 rounded-xl">
+                        <div class="flex items-center">
+                            <div class="text-3xl mr-4">✅</div>
+                            <div>
+                                <h4 class="text-green-800 font-bold text-lg">Registration Successful!</h4>
+                                <p class="text-green-700">Thank you for registering! We have received your information and will contact you soon.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Section at Bottom of Home -->
+            <div class="bg-gray-800 py-8">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-white mb-2">Get in Touch</h3>
+                        <p class="text-lg text-white opacity-90">Ready to start your learning journey?</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <div class="text-center">
+                            <div class="text-4xl mb-4">📞</div>
+                            <h4 class="text-xl font-semibold text-white mb-2">Call Us</h4>
+                            <p class="text-white opacity-90">+91 91400 78867</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl mb-4">💬</div>
+                            <h4 class="text-xl font-semibold text-white mb-2">WhatsApp</h4>
+                            <a href="https://wa.me/919140078867" target="_blank" class="text-green-300 hover:text-green-100 font-semibold">+91 91400 78867</a>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl mb-4">✉️</div>
+                            <h4 class="text-xl font-semibold text-white mb-2">Email</h4>
+                            <a href="mailto:PRITAM.RATH.75@gmail.com" class="text-blue-300 hover:text-blue-100 font-semibold">Contact Us</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Media Icons -->
+                    <div class="text-center">
+                        <h4 class="text-xl font-semibold text-white mb-6">Follow Us</h4>
+                        <div class="flex justify-center space-x-4">
+                            <a href="https://www.youtube.com/@TechCareDigital" target="_blank" class="bg-red-600 text-white p-3 rounded-full hover:bg-red-700 transition duration-300 transform hover:scale-110 glow-effect">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.instagram.com/mr.pritam.s/" target="_blank" class="bg-pink-600 text-white p-3 rounded-full hover:bg-pink-700 transition duration-300 transform hover:scale-110 glow-effect">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.facebook.com/people/Pritam-Singh/pfbid0JNeFFxkg1K2Ra2H2GJVy5oPy5qBiBg4JG7jpw9BnDn81uV4xoMFZFKsSTM9jQ8Lhl/" target="_blank" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition duration-300 transform hover:scale-110 glow-effect">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                </svg>
+                            </a>
+                            <a href="https://x.com/Mrpritams0?t=GLy-hjkifYbh9_OY51MEXg&s=08" target="_blank" class="bg-black text-white p-3 rounded-full hover:bg-gray-800 transition duration-300 transform hover:scale-110 glow-effect">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                                </svg>
+                            </a>
+                            <a href="https://t.me/techlearnacademy" target="_blank" class="bg-blue-500 text-white p-3 rounded-full hover:bg-blue-600 transition duration-300 transform hover:scale-110 glow-effect">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div id="paymentModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
+        <div class="bg-white rounded-lg shadow-2xl p-8 max-w-md w-full mx-4">
+            <div class="text-center mb-6">
+                <div class="text-5xl mb-4">💳</div>
+                <h3 class="text-2xl font-bold text-gray-800">Payment Options</h3>
+                <p class="text-gray-600 mt-2">Complete your premium course enrollment</p>
+            </div>
+            
+            <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                <p class="text-sm text-blue-800 font-medium">📚 For Premium Course Students Only</p>
+                <p class="text-xs text-blue-600 mt-1">Students enrolling in premium courses should complete the payment to confirm their enrollment.</p>
+            </div>
+            
+            <div class="space-y-4 mb-6">
+                <div class="border border-gray-200 rounded-lg p-4">
+                    <h4 class="font-semibold text-gray-800 mb-2">💰 UPI Payment</h4>
+                    <p class="text-sm text-gray-600 mb-2">Pay using any UPI app</p>
+                    <div class="bg-gray-50 p-3 rounded border">
+                        <p class="font-mono text-sm">7570024800@sbi</p>
+                        <button onclick="copyUPI()" class="text-blue-600 text-xs hover:text-blue-800">📋 Copy UPI ID</button>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg p-4">
+                    <h4 class="font-semibold text-gray-800 mb-2">🏦 Bank Transfer</h4>
+                    <p class="text-sm text-gray-600 mb-2">Direct bank account transfer</p>
+                    <div class="bg-gray-50 p-3 rounded border text-xs space-y-1">
+                        <p><strong>Account:</strong> 41554032753</p>
+                        <p><strong>IFSC:</strong> SBIN0009594</p>
+                        <p><strong>Bank:</strong> SBI Bank</p>
+                        <button onclick="copyBankDetails()" class="text-blue-600 hover:text-blue-800">📋 Copy Details</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex space-x-3">
+                <button onclick="confirmPayment()" class="flex-1 bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition duration-300 font-semibold">
+                    ✅ Payment Done
+                </button>
+                <button onclick="skipPayment()" class="flex-1 bg-gray-300 text-gray-700 py-3 rounded-lg hover:bg-gray-400 transition duration-300 font-semibold">
+                    ⏭️ Skip for Now
+                </button>
+            </div>
+            
+            <p class="text-xs text-gray-500 text-center mt-4">
+                💡 You can also pay later by contacting us directly
+            </p>
+        </div>
+    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ========== REGISTRATION FORM SECTION ENDS HERE ========== -->
+
+    <!-- Contact Section -->
+    <div id="contact" class="section hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Contact Us</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Get in Touch</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="text-2xl mr-4">📍</div>
+                            <p class="text-gray-600">Rath Hamirpur Uttar Pradesh</p>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="text-2xl mr-4">📞</div>
+                            <p class="text-gray-600">+91 91400 78867</p>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="text-2xl mr-4">💬</div>
+                            <a href="https://wa.me/919140078867" target="_blank" class="text-green-600 hover:text-green-800 font-semibold">WhatsApp: +91 91400 78867</a>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="text-2xl mr-4">✉️</div>
+                            <p class="text-gray-600">PRITAM.RATH.75@GMAIL.COM</p>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="text-2xl mr-4">🕒</div>
+                            <p class="text-gray-600">Mon - Sat: 9:00 AM - 7:00 PM</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Media Section -->
+                    <div class="mt-8 pt-6 border-t border-gray-200">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-4">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="https://www.youtube.com/@TechCareDigital" target="_blank" class="flex items-center bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition duration-300">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                </svg>
+                                <span class="text-sm font-medium">YouTube</span>
+                            </a>
+                            <a href="https://www.instagram.com/mr.pritam.s/" target="_blank" class="flex items-center bg-pink-600 text-white px-4 py-2 rounded-lg hover:bg-pink-700 transition duration-300">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                                <span class="text-sm font-medium">Instagram</span>
+                            </a>
+                            <a href="https://www.facebook.com/people/Pritam-Singh/pfbid0JNeFFxkg1K2Ra2H2GJVy5oPy5qBiBg4JG7jpw9BnDn81uV4xoMFZFKsSTM9jQ8Lhl/" target="_blank" class="flex items-center bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                </svg>
+                                <span class="text-sm font-medium">Facebook</span>
+                            </a>
+                            <a href="https://x.com/Mrpritams0?t=GLy-hjkifYbh9_OY51MEXg&s=08" target="_blank" class="flex items-center bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition duration-300">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                                </svg>
+                                <span class="text-sm font-medium">X (Twitter)</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Send Message</h3>
+                    <p class="text-sm text-gray-500 mb-4">Demo Contact Form</p>
+                    <form id="contactForm" class="space-y-4">
+                        <input type="text" name="contactName" placeholder="Your Name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                        <input type="email" name="contactEmail" placeholder="Your Email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                        <textarea name="contactMessage" placeholder="Your Message" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"></textarea>
+                        <button type="submit" class="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition duration-300">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Typing Section -->
+    <div id="typing" class="section hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Typing Practice</h2>
+            
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <div class="mb-6">
+                    <label for="typingStudentName" class="block text-sm font-medium text-gray-700 mb-2">Enter Your Name:</label>
+                    <input type="text" id="typingStudentName" placeholder="Your Name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Select Language:</label>
+                    <div class="flex space-x-4">
+                        <button onclick="setLanguage('english')" id="englishBtn" class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition duration-300">English</button>
+                        <button onclick="setLanguage('hindi')" id="hindiBtn" class="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 transition duration-300">Hindi</button>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Select Time Duration:</label>
+                    <div class="grid grid-cols-4 md:grid-cols-10 gap-2">
+                        <button onclick="setTime(1)" class="bg-blue-100 text-blue-800 px-3 py-2 rounded-lg hover:bg-blue-200 transition duration-300 text-sm">1 min</button>
+                        <button onclick="setTime(2)" class="bg-blue-100 text-blue-800 px-3 py-2 rounded-lg hover:bg-blue-200 transition duration-300 text-sm">2 min</button>
+                        <button onclick="setTime(3)" class="bg-blue-100 text-blue-800 px-3 py-2 rounded-lg hover:bg-blue-200 transition duration-300 text-sm">3 min</button>
+                        <button onclick="setTime(5)" class="bg-blue-100 text-blue-800 px-3 py-2 rounded-lg hover:bg-blue-200 transition duration-300 text-sm">5 min</button>
+                        <button onclick="setTime(10)" class="bg-blue-100 text-blue-800 px-3 py-2 rounded-lg hover:bg-blue-200 transition duration-300 text-sm">10 min</button>
+                        <button onclick="setTime(15)" class="bg-blue-100 text-blue-800 px-3 py-2 rounded-lg hover:bg-blue-200 transition duration-300 text-sm">15 min</button>
+                        <button onclick="setTime(20)" id="defaultTime" class="bg-blue-600 text-white px-3 py-2 rounded-lg hover:bg-blue-700 transition duration-300 text-sm">20 min</button>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg font-semibold">Practice Text:</h3>
+                        <div class="text-right">
+                            <div class="text-2xl font-bold text-purple-600" id="timer">20:00</div>
+                            <div class="text-sm text-gray-600">Time Remaining</div>
+                        </div>
+                    </div>
+                    <div id="practiceText" class="bg-gray-50 p-4 rounded-lg text-lg leading-relaxed border-2 border-gray-200 min-h-32">
+                        The quick brown fox jumps over the lazy dog. This sentence contains every letter of the alphabet and is commonly used for typing practice. Technology has revolutionized the way we communicate and work. Computers have become an essential part of our daily lives. Learning to type efficiently is a valuable skill that can improve productivity and career prospects. Practice makes perfect, and consistent effort leads to improvement. The digital age requires us to be proficient with keyboards and various input methods.
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <textarea id="typingArea" placeholder="Start typing here..." class="w-full h-32 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 text-lg" disabled></textarea>
+                </div>
+                
+                <div class="flex justify-between items-center mb-6">
+                    <button onclick="startTyping()" id="startBtn" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition duration-300">Start Practice</button>
+                    <button onclick="resetTyping()" class="bg-gray-600 text-white px-6 py-2 rounded-lg hover:bg-gray-700 transition duration-300">Reset</button>
+                </div>
+                
+                <div id="results" class="hidden bg-blue-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold text-blue-800 mb-4">Typing Results</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-blue-600" id="wpm">0</div>
+                            <div class="text-sm text-gray-600">WPM</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-green-600" id="accuracy">0%</div>
+                            <div class="text-sm text-gray-600">Accuracy</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-purple-600" id="totalWords">0</div>
+                            <div class="text-sm text-gray-600">Words Typed</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-red-600" id="errors">0</div>
+                            <div class="text-sm text-gray-600">Errors</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Section at Bottom of Home -->
+            <div class="bg-gray-800 py-8">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-white mb-2">Get in Touch</h3>
+                        <p class="text-lg text-white opacity-90">Ready to start your learning journey?</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <div class="text-center">
+                            <div class="text-4xl mb-4">📞</div>
+                            <h4 class="text-xl font-semibold text-white mb-2">Call Us</h4>
+                            <p class="text-white opacity-90">+91 91400 78867</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl mb-4">💬</div>
+                            <h4 class="text-xl font-semibold text-white mb-2">WhatsApp</h4>
+                            <a href="https://wa.me/919140078867" target="_blank" class="text-green-300 hover:text-green-100 font-semibold">+91 91400 78867</a>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl mb-4">✉️</div>
+                            <h4 class="text-xl font-semibold text-white mb-2">Email</h4>
+                            <a href="mailto:PRITAM.RATH.75@gmail.com" class="text-blue-300 hover:text-blue-100 font-semibold">Contact Us</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Media Icons -->
+                    <div class="text-center">
+                        <h4 class="text-xl font-semibold text-white mb-6">Follow Us</h4>
+                        <div class="flex justify-center space-x-4">
+                            <a href="https://www.youtube.com/@TechCareDigital" target="_blank" class="bg-red-600 text-white p-3 rounded-full hover:bg-red-700 transition duration-300 transform hover:scale-110 glow-effect">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.instagram.com/mr.pritam.s/" target="_blank" class="bg-pink-600 text-white p-3 rounded-full hover:bg-pink-700 transition duration-300 transform hover:scale-110 glow-effect">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.facebook.com/people/Pritam-Singh/pfbid0JNeFFxkg1K2Ra2H2GJVy5oPy5qBiBg4JG7jpw9BnDn81uV4xoMFZFKsSTM9jQ8Lhl/" target="_blank" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition duration-300 transform hover:scale-110 glow-effect">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                </svg>
+                            </a>
+                            <a href="https://x.com/Mrpritams0?t=GLy-hjkifYbh9_OY51MEXg&s=08" target="_blank" class="bg-black text-white p-3 rounded-full hover:bg-gray-800 transition duration-300 transform hover:scale-110 glow-effect">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                                </svg>
+                            </a>
+                            <a href="https://t.me/techlearnacademy" target="_blank" class="bg-blue-500 text-white p-3 rounded-full hover:bg-blue-600 transition duration-300 transform hover:scale-110 glow-effect">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Contact Widget -->
+    <div id="floatingContact" class="fixed bottom-6 right-6 z-50 cursor-move">
+        <div class="bg-white rounded-lg shadow-2xl p-4 max-w-xs border-2 border-purple-200">
+            <div class="text-center mb-3">
+                <h4 class="font-bold text-gray-800 text-sm">📞 Contact Us</h4>
+                <p class="text-xs text-gray-600">TECHLEARN Education Academy</p>
+            </div>
+            <div class="space-y-2 text-xs">
+                <div class="flex items-center justify-between">
+                    <span class="text-gray-600">📞 Call:</span>
+                    <span class="font-semibold text-purple-600">+91 91400 78867</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="text-gray-600">💬 WhatsApp:</span>
+                    <a href="https://wa.me/919140078867" target="_blank" class="font-semibold text-green-600 hover:text-green-800">+91 91400 78867</a>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="text-gray-600">✉️ Email:</span>
+                    <a href="mailto:PRITAM.RATH.75@gmail.com" class="font-semibold text-blue-600 hover:text-blue-800 text-xs">Contact</a>
+                </div>
+            </div>
+            <div class="mt-3 pt-2 border-t border-gray-200">
+                <button onclick="showSection('registration')" class="w-full bg-purple-600 text-white py-2 px-3 rounded-lg text-xs font-semibold hover:bg-purple-700 transition duration-300">
+                    🎓 Register Now
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSection = 'home';
+        let typingStarted = false;
+        let startTime;
+        let timerInterval;
+        let selectedMinutes = 20;
+        let timeLeft = 1200; // 20 minutes in seconds
+        let currentLanguage = 'english';
+        
+        const englishTexts = [
+            "The quick brown fox jumps over the lazy dog. This sentence contains every letter of the alphabet and is commonly used for typing practice. Technology has revolutionized the way we communicate and work. Computers have become an essential part of our daily lives. Learning to type efficiently is a valuable skill that can improve productivity and career prospects. Practice makes perfect, and consistent effort leads to improvement. The digital age requires us to be proficient with keyboards and various input methods. Programming languages like HTML, CSS, and JavaScript are fundamental for web development. Data analysis and machine learning are becoming increasingly important in various industries. Cloud computing has transformed how businesses store and process information.",
+            "In today's fast-paced world, digital literacy is more important than ever before. Students and professionals alike must develop strong typing skills to succeed in their careers. The ability to communicate effectively through written text is a cornerstone of modern business. Email correspondence, document creation, and online collaboration require proficient keyboard skills. Educational institutions are increasingly incorporating technology into their curricula. Online learning platforms have made education more accessible to people around the globe. Social media has changed how we interact and share information with others.",
+            "Artificial intelligence and automation are reshaping industries across the globe. Machine learning algorithms can process vast amounts of data to identify patterns and make predictions. Cybersecurity has become a critical concern as more activities move online. Protecting personal and corporate data requires sophisticated security measures. The Internet of Things connects everyday devices to create smart homes and cities. Renewable energy technologies are helping to address climate change challenges. Sustainable development practices are essential for future generations.",
+            "Computer education has become fundamental in modern society. Students must learn basic computer skills to compete in today's job market. Microsoft Office applications like Word, Excel, and PowerPoint are essential tools for business communication. Internet browsing and email management are basic requirements for most professional positions. Database management systems help organizations store and retrieve information efficiently. Web development involves creating websites using HTML, CSS, and JavaScript programming languages. Digital marketing strategies include search engine optimization and social media management.",
+            "The importance of computer literacy cannot be overstated in our digital world. From basic word processing to advanced programming concepts, computer skills open doors to countless opportunities. E-commerce platforms have transformed traditional business models and created new revenue streams. Mobile applications have revolutionized how we access information and services on the go. Cloud storage solutions provide secure and accessible data management for individuals and businesses. Video conferencing technology has made remote work and virtual meetings commonplace across industries.",
+            "Information technology careers offer excellent growth prospects and competitive salaries. Software development requires logical thinking and problem-solving abilities. Network administration involves managing computer systems and ensuring data security. Graphic design combines creativity with technical skills to create visual communications. Data entry positions require accuracy and attention to detail along with fast typing speeds. Technical support roles involve helping users troubleshoot computer problems and software issues.",
+            "Computer programming languages serve different purposes in software development. Python is popular for data science and artificial intelligence applications. Java is widely used for enterprise software and mobile app development. C++ provides high performance for system programming and game development. SQL is essential for database management and data analysis tasks. HTML and CSS are fundamental for creating and styling web pages. JavaScript adds interactivity and dynamic features to websites and web applications."
+        ];
+        
+        const hindiTexts = [
+            "कंप्यूटर आज के युग में एक महत्वपूर्ण उपकरण है। यह हमारे जीवन को आसान बनाता है। टाइपिंग एक महत्वपूर्ण कौशल है जो हर व्यक्ति को सीखना चाहिए। प्रौद्योगिकी ने हमारे काम करने के तरीके को बदल दिया है। इंटरनेट ने दुनिया को एक छोटे से गांव में बदल दिया है। शिक्षा के क्षेत्र में भी कंप्यूटर का बहुत योगदान है। डिजिटल इंडिया अभियान से देश में तकनीकी विकास हो रहा है।",
+            "भारत में सूचना प्रौद्योगिकी का तेजी से विकास हो रहा है। युवाओं के लिए कंप्यूटर कोर्स करना आवश्यक हो गया है। ऑनलाइन शिक्षा ने पारंपरिक शिक्षा प्रणाली को बदल दिया है। सोशल मीडिया ने लोगों के बीच संवाद के तरीके को प्रभावित किया है। ई-कॉमर्स ने व्यापार के नए अवसर प्रदान किए हैं। डिजिटल पेमेंट सिस्टम ने लेन-देन को सुरक्षित और आसान बनाया है।",
+            "कृत्रिम बुद्धिमत्ता और मशीन लर्निंग भविष्य की तकनीक है। डेटा साइंस एक नया और रोचक क्षेत्र है। साइबर सिक्योरिटी आज के समय की सबसे बड़ी आवश्यकता है। क्लाउड कंप्यूटिंग ने डेटा स्टोरेज को क्रांतिकारी बनाया है। मोबाइल एप्लिकेशन डेवलपमेंट में अपार संभावनाएं हैं। ब्लॉकचेन तकनीक वित्तीय सेवाओं को बदल रही है।",
+            "कंप्यूटर शिक्षा आधुनिक समाज में अत्यंत आवश्यक हो गई है। छात्रों को आज के प्रतिस्पर्धी युग में कंप्यूटर कौशल सीखना जरूरी है। माइक्रोसॉफ्ट ऑफिस के एप्लिकेशन जैसे वर्ड, एक्सेल और पावरपॉइंट व्यावसायिक संचार के लिए आवश्यक हैं। इंटरनेट ब्राउजिंग और ईमेल प्रबंधन अधिकांश नौकरियों की बुनियादी आवश्यकताएं हैं। डेटाबेस प्रबंधन प्रणाली संगठनों को जानकारी संग्रहीत करने में मदद करती है।",
+            "डिजिटल युग में कंप्यूटर साक्षरता का महत्व बहुत बढ़ गया है। बेसिक वर्ड प्रोसेसिंग से लेकर एडवांस प्रोग्रामिंग तक, कंप्यूटर कौशल अनगिनत अवसर प्रदान करते हैं। ई-कॉमर्स प्लेटफॉर्म ने पारंपरिक व्यापारिक मॉडल को बदल दिया है। मोबाइल एप्लिकेशन ने हमारे जानकारी और सेवाओं तक पहुंचने के तरीके में क्रांति ला दी है। क्लाउड स्टोरेज समाधान व्यक्तियों और व्यवसायों के लिए सुरक्षित डेटा प्रबंधन प्रदान करते हैं।",
+            "सूचना प्रौद्योगिकी करियर में उत्कृष्ट विकास की संभावनाएं और प्रतिस्पर्धी वेतन मिलता है। सॉफ्टवेयर डेवलपमेंट में तार्किक सोच और समस्या समाधान की क्षमता की आवश्यकता होती है। नेटवर्क एडमिनिस्ट्रेशन में कंप्यूटर सिस्टम का प्रबंधन और डेटा सुरक्षा शामिल है। ग्राफिक डिजाइन रचनात्मकता को तकनीकी कौशल के साथ जोड़ता है। डेटा एंट्री पदों में सटीकता और तेज टाइपिंग स्पीड की आवश्यकता होती है।",
+            "कंप्यूटर प्रोग्रामिंग भाषाएं सॉफ्टवेयर डेवलपमेंट में विभिन्न उद्देश्यों की पूर्ति करती हैं। पायथन डेटा साइंस और कृत्रिम बुद्धिमत्ता एप्लिकेशन के लिए लोकप्रिय है। जावा एंटरप्राइज सॉफ्टवेयर और मोबाइल ऐप डेवलपमेंट के लिए व्यापक रूप से उपयोग किया जाता है। सी++ सिस्टम प्रोग्रामिंग और गेम डेवलपमेंट के लिए उच्च प्रदर्शन प्रदान करता है। एसक्यूएल डेटाबेस प्रबंधन और डेटा विश्लेषण कार्यों के लिए आवश्यक है।",
+            "भारत में डिजिटल क्रांति ने शिक्षा, स्वास्थ्य और व्यापार के क्षेत्र में नए आयाम खोले हैं। ऑनलाइन बैंकिंग और डिजिटल पेमेंट ने वित्तीय लेनदेन को सुविधाजनक बनाया है। टेलीमेडिसिन सेवाओं ने दूरदराज के क्षेत्रों में स्वास्थ्य सेवा पहुंचाई है। ई-गवर्नेंस पहल ने सरकारी सेवाओं को पारदर्शी और कुशल बनाया है। स्मार्ट सिटी परियोजनाएं शहरी जीवन की गुणवत्ता में सुधार ला रही हैं। कृषि में तकनीक का उपयोग फसल उत्पादन बढ़ाने में मदद कर रहा है।"
+        ];
+
+        function showSection(section) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(s => s.classList.add('hidden'));
+            
+            // Show selected section
+            document.getElementById(section).classList.remove('hidden');
+            currentSection = section;
+            
+            // Add fade-in animation
+            document.getElementById(section).classList.add('fade-in');
+            
+            // Update navigation highlighting
+            updateNavHighlight(section);
+        }
+
+        function updateNavHighlight(activeSection) {
+            // Remove active class from all nav links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Add active class to current section
+            const navLink = document.getElementById(`nav-${activeSection}`);
+            const mobileNavLink = document.getElementById(`mobile-nav-${activeSection}`);
+            
+            if (navLink) navLink.classList.add('active');
+            if (mobileNavLink) mobileNavLink.classList.add('active');
+        }
+
+        function showExamSection() {
+            alert('📝 Online Exam Portal\n\n🎯 Features Coming Soon:\n• Computer Knowledge Tests\n• Typing Speed Tests\n• Course-wise Assessments\n• Instant Results & Certificates\n• Progress Tracking\n\n📚 Available Exam Categories:\n• Basic Computer Knowledge\n• MS Office Proficiency\n• Programming Concepts\n• Digital Literacy\n\n🏆 Get certified after completing courses!\n\n📞 For more info: +91 91400 78867');
+        }
+
+        function showCertificateSection() {
+            // Show registration form for certificate
+            showSection('registration');
+            
+            // Show certificate info
+            setTimeout(() => {
+                alert('🏆 Get Your Certificate!\n\n📋 Certificate Requirements:\n• Complete course registration\n• Attend all classes (minimum 80%)\n• Pass the final examination\n• Submit all assignments\n\n🎓 Certificate Features:\n• Government recognized\n• Digital & Physical copy\n• Verification QR code\n• Industry standard format\n\n💡 Register now to start your certification journey!\n\n📞 Contact: +91 91400 78867\n💬 WhatsApp: +91 91400 78867');
+            }, 1000);
+        }
+
+        function setLanguage(language) {
+            currentLanguage = language;
+            
+            // Update button styles
+            if (language === 'english') {
+                document.getElementById('englishBtn').className = 'bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition duration-300';
+                document.getElementById('hindiBtn').className = 'bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 transition duration-300';
+            } else {
+                document.getElementById('hindiBtn').className = 'bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition duration-300';
+                document.getElementById('englishBtn').className = 'bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 transition duration-300';
+            }
+            
+            // Update practice text
+            updatePracticeText();
+        }
+
+        function setTime(minutes) {
+            selectedMinutes = minutes;
+            timeLeft = minutes * 60;
+            
+            // Update timer display
+            const mins = Math.floor(timeLeft / 60);
+            const secs = timeLeft % 60;
+            document.getElementById('timer').textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            
+            // Update button styles
+            const timeButtons = document.querySelectorAll('[onclick^="setTime"]');
+            timeButtons.forEach(btn => {
+                btn.className = 'bg-blue-100 text-blue-800 px-3 py-2 rounded-lg hover:bg-blue-200 transition duration-300 text-sm';
+            });
+            
+            // Highlight selected button
+            event.target.className = 'bg-blue-600 text-white px-3 py-2 rounded-lg hover:bg-blue-700 transition duration-300 text-sm';
+        }
+
+        function updatePracticeText() {
+            const texts = currentLanguage === 'english' ? englishTexts : hindiTexts;
+            const randomText = texts[Math.floor(Math.random() * texts.length)];
+            document.getElementById('practiceText').textContent = randomText;
+        }
+
+        function startTyping() {
+            const studentName = document.getElementById('typingStudentName').value.trim();
+            if (!studentName) {
+                alert('Please enter your name before starting!');
+                return;
+            }
+            
+            if (!typingStarted) {
+                typingStarted = true;
+                startTime = new Date();
+                document.getElementById('typingArea').disabled = false;
+                document.getElementById('typingArea').focus();
+                document.getElementById('startBtn').textContent = 'Practice Started...';
+                document.getElementById('startBtn').disabled = true;
+                document.getElementById('results').classList.add('hidden');
+                
+                // Start timer
+                timerInterval = setInterval(updateTimer, 1000);
+                
+                // Add typing event listener
+                document.getElementById('typingArea').addEventListener('input', checkTyping);
+            }
+        }
+
+        function updateTimer() {
+            timeLeft--;
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            document.getElementById('timer').textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            
+            if (timeLeft <= 0) {
+                endTyping();
+            }
+        }
+
+        function checkTyping() {
+            const typedText = document.getElementById('typingArea').value;
+            const practiceText = document.getElementById('practiceText').textContent;
+            
+            // Check if user has typed the complete text
+            if (typedText.length >= practiceText.length) {
+                endTyping();
+            }
+        }
+
+        function endTyping() {
+            typingStarted = false;
+            clearInterval(timerInterval);
+            document.getElementById('typingArea').disabled = true;
+            
+            calculateResults();
+            document.getElementById('results').classList.remove('hidden');
+            
+            document.getElementById('startBtn').textContent = 'Start Practice';
+            document.getElementById('startBtn').disabled = false;
+        }
+
+        function calculateResults() {
+            const studentName = document.getElementById('typingStudentName').value;
+            const typedText = document.getElementById('typingArea').value;
+            const practiceText = document.getElementById('practiceText').textContent;
+            const timeSpent = ((selectedMinutes * 60) - timeLeft) / 60; // in minutes
+            
+            // Calculate words per minute
+            const wordsTyped = typedText.trim().split(/\s+/).length;
+            const wpm = Math.round(wordsTyped / timeSpent) || 0;
+            
+            // Calculate accuracy
+            let correctChars = 0;
+            const minLength = Math.min(typedText.length, practiceText.length);
+            
+            for (let i = 0; i < minLength; i++) {
+                if (typedText[i] === practiceText[i]) {
+                    correctChars++;
+                }
+            }
+            
+            const accuracy = Math.round((correctChars / practiceText.length) * 100) || 0;
+            const errors = typedText.length - correctChars;
+            
+            // Update results display
+            document.getElementById('wpm').textContent = wpm;
+            document.getElementById('accuracy').textContent = accuracy + '%';
+            document.getElementById('totalWords').textContent = wordsTyped;
+            document.getElementById('errors').textContent = errors;
+            
+            // Add student name to results
+            const resultsTitle = document.querySelector('#results h3');
+            resultsTitle.textContent = `Typing Results for ${studentName}`;
+        }
+
+        function resetTyping() {
+            typingStarted = false;
+            clearInterval(timerInterval);
+            timeLeft = selectedMinutes * 60;
+            const mins = Math.floor(timeLeft / 60);
+            const secs = timeLeft % 60;
+            document.getElementById('timer').textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            document.getElementById('typingArea').value = '';
+            document.getElementById('typingArea').disabled = true;
+            document.getElementById('startBtn').textContent = 'Start Practice';
+            document.getElementById('startBtn').disabled = false;
+            document.getElementById('results').classList.add('hidden');
+            updatePracticeText();
+        }
+
+        // ========== REGISTRATION FORM JAVASCRIPT STARTS HERE ==========
+        
+        // Handle registration form submission
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = {};
+            for (let [key, value] of formData.entries()) {
+                data[key] = value;
+            }
+            
+            // Create email content
+            const emailContent = `
+                New Student Registration - TechLearn Academy
+                
+                Student Details:
+                ================
+                Name: ${data.studentName}
+                Age: ${data.age}
+                Father's Name: ${data.fatherName}
+                Mother's Name: ${data.motherName}
+                
+                Contact Information:
+                ===================
+                Email: ${data.email}
+                Phone: ${data.phone}
+                Address: ${data.address}
+                
+                Course Information:
+                ==================
+                Selected Course: ${data.course}
+                
+                Additional Message:
+                ==================
+                ${data.message || 'No additional message provided'}
+                
+                Registration Date: ${new Date().toLocaleString()}
+            `;
+            
+            // Create mailto link
+            const subject = encodeURIComponent('New Student Registration - ' + data.studentName);
+            const body = encodeURIComponent(emailContent);
+            const mailtoLink = `mailto:PRITAM.RATH.75@gmail.com?subject=${subject}&body=${body}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            document.getElementById('successMessage').classList.remove('hidden');
+            
+            // Check if it's a premium course and show payment modal
+            const premiumCourses = [
+                'Full Stack Development - ₹25,000',
+                'Data Science - ₹30,000', 
+                'Digital Marketing - ₹18,000',
+                'Cybersecurity - ₹35,000',
+                'Cloud Computing - ₹28,000'
+            ];
+            
+            if (premiumCourses.includes(data.course)) {
+                setTimeout(() => {
+                    showPaymentModal();
+                }, 2000);
+            }
+            
+            // Reset form
+            this.reset();
+            
+            // Scroll to success message
+            document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        // ========== REGISTRATION FORM JAVASCRIPT ENDS HERE ==========
+
+        // Handle contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = {};
+            for (let [key, value] of formData.entries()) {
+                data[key] = value;
+            }
+            
+            // Create email content
+            const emailContent = `
+                Contact Form Inquiry - TechLearn Academy
+                
+                Contact Details:
+                ================
+                Name: ${data.contactName}
+                Email: ${data.contactEmail}
+                
+                Message:
+                ========
+                ${data.contactMessage}
+                
+                Inquiry Date: ${new Date().toLocaleString()}
+                
+                ---
+                This inquiry was sent from the TechLearn Academy website contact form.
+            `;
+            
+            // Create mailto link
+            const subject = encodeURIComponent('Contact Form Inquiry - ' + data.contactName);
+            const body = encodeURIComponent(emailContent);
+            const mailtoLink = `mailto:PRITAM.RATH.75@gmail.com?subject=${subject}&body=${body}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            alert('✅ Thank you for your message!\n\nYour inquiry has been sent to our email. We will get back to you soon.\n\n📧 You can also reach us directly at:\nPRITAM.RATH.75@gmail.com\n\n💬 Or WhatsApp us at: +91 91400 78867');
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Watch Course Function
+        function watchCourse(courseName) {
+            alert(`🎬 Course Preview: ${courseName}\n\n📚 This feature will show you:\n• Course curriculum overview\n• Sample lessons and tutorials\n• Instructor introduction\n• Learning outcomes\n\n💡 Note: This is a demo feature. In the full version, you would see actual course preview videos and detailed content.\n\n🎯 Ready to enroll? Click the "Enroll Now" button to register for this course!`);
+        }
+
+        // Payment Modal Functions
+        function showPaymentModal() {
+            document.getElementById('paymentModal').classList.remove('hidden');
+        }
+
+        function hidePaymentModal() {
+            document.getElementById('paymentModal').classList.add('hidden');
+        }
+
+        function copyUPI() {
+            navigator.clipboard.writeText('7570024800@sbi').then(() => {
+                alert('📋 UPI ID copied to clipboard!\n\n7570024800@sbi\n\nYou can now paste it in any UPI app to make payment.');
+            });
+        }
+
+        function copyBankDetails() {
+            const bankDetails = `Account: 41554032753\nIFSC: SBIN0009594\nBank: SBI Bank`;
+            navigator.clipboard.writeText(bankDetails).then(() => {
+                alert('📋 Bank details copied to clipboard!\n\nAccount: 41554032753\nIFSC: SBIN0009594\nBank: SBI Bank');
+            });
+        }
+
+        function confirmPayment() {
+            const studentName = document.getElementById('studentName').value;
+            const course = document.getElementById('course').value;
+            
+            // Create payment confirmation email
+            const paymentEmailContent = `
+                Payment Confirmation - TechLearn Academy
+                
+                Student Payment Details:
+                ========================
+                Student Name: ${studentName}
+                Course: ${course}
+                Payment Status: COMPLETED
+                Payment Date: ${new Date().toLocaleString()}
+                
+                Payment Method: UPI/Bank Transfer
+                UPI ID: 7570024800@sbi
+                Bank Account: 41554032753 (IFSC: SBIN0009594)
+                
+                Note: Student has confirmed payment completion.
+                Please verify the payment and confirm enrollment.
+                
+                ---
+                This confirmation was sent from the TechLearn Academy website.
+            `;
+            
+            // Create mailto link for payment confirmation
+            const subject = encodeURIComponent('Payment Confirmation - ' + studentName);
+            const body = encodeURIComponent(paymentEmailContent);
+            const mailtoLink = `mailto:PRITAM.RATH.75@gmail.com?subject=${subject}&body=${body}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            hidePaymentModal();
+            alert('✅ Payment Confirmed!\n\nThank you for your payment. We have sent the confirmation to our team.\n\n📧 You will receive enrollment confirmation shortly.\n\n💬 For any queries, WhatsApp us at: +91 91400 78867');
+        }
+
+        function skipPayment() {
+            hidePaymentModal();
+            alert('⏭️ Payment Skipped\n\nYou can complete the payment later by:\n\n💰 UPI: 7570024800@sbi\n🏦 Bank: 41554032753 (IFSC: SBIN0009594)\n\n📞 Contact us at: +91 91400 78867\n💬 WhatsApp: +91 91400 78867');
+        }
+
+        // Draggable Contact Widget
+        let isDragging = false;
+        let currentX;
+        let currentY;
+        let initialX;
+        let initialY;
+        let xOffset = 0;
+        let yOffset = 0;
+
+        const floatingContact = document.getElementById('floatingContact');
+
+        floatingContact.addEventListener('mousedown', dragStart);
+        document.addEventListener('mousemove', drag);
+        document.addEventListener('mouseup', dragEnd);
+
+        // Touch events for mobile
+        floatingContact.addEventListener('touchstart', dragStart);
+        document.addEventListener('touchmove', drag);
+        document.addEventListener('touchend', dragEnd);
+
+        function dragStart(e) {
+            if (e.type === "touchstart") {
+                initialX = e.touches[0].clientX - xOffset;
+                initialY = e.touches[0].clientY - yOffset;
+            } else {
+                initialX = e.clientX - xOffset;
+                initialY = e.clientY - yOffset;
+            }
+
+            if (e.target === floatingContact || floatingContact.contains(e.target)) {
+                isDragging = true;
+            }
+        }
+
+        function drag(e) {
+            if (isDragging) {
+                e.preventDefault();
+                
+                if (e.type === "touchmove") {
+                    currentX = e.touches[0].clientX - initialX;
+                    currentY = e.touches[0].clientY - initialY;
+                } else {
+                    currentX = e.clientX - initialX;
+                    currentY = e.clientY - initialY;
+                }
+
+                xOffset = currentX;
+                yOffset = currentY;
+
+                // Keep within viewport bounds
+                const rect = floatingContact.getBoundingClientRect();
+                const maxX = window.innerWidth - rect.width;
+                const maxY = window.innerHeight - rect.height;
+                
+                xOffset = Math.max(0, Math.min(xOffset, maxX));
+                yOffset = Math.max(0, Math.min(yOffset, maxY));
+
+                floatingContact.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+                floatingContact.style.position = 'fixed';
+                floatingContact.style.right = 'auto';
+                floatingContact.style.bottom = 'auto';
+                floatingContact.style.left = '0';
+                floatingContact.style.top = '0';
+            }
+        }
+
+        function dragEnd(e) {
+            initialX = currentX;
+            initialY = currentY;
+            isDragging = false;
+        }
+
+        // Mobile Menu Functions
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const hamburgerIcon = document.getElementById('hamburger-icon');
+            const closeIcon = document.getElementById('close-icon');
+            
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+                hamburgerIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+            } else {
+                mobileMenu.classList.add('hidden');
+                hamburgerIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            }
+        }
+
+        // Initialize
+        updatePracticeText();
+        
+        // Initialize navigation highlighting
+        document.addEventListener('DOMContentLoaded', function() {
+            updateNavHighlight('home'); // Set home as active by default
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'971815cfc64c5963',t:'MTc1NTU5MDA5MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
